@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:34:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/23 14:57:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:19:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ bool	Account::makeWithdrawal(int withdrawal) {
 	this->_nbWithdrawals ++;
 	std::cout << ";amount:" << this->_amount;
 	std::cout << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+	Account::_totalNbWithdrawals++;
+	Account::_totalAmount-=withdrawal;
 	return (true);
 }
 
