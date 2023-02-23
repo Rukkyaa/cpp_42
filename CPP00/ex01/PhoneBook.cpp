@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:58:32 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/19 16:44:13 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:02:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	PhoneBook::_search() {
 	{
 		std::cout << "Enter the id of the contact you want to see : ";
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit(0);
 		nb = std::atoi(input.c_str());
 		if ((nb == 0 && input[0] != '0') || this->_contacts[nb - 1]._get_first_name().empty())
 			std::cout << "Invalid input !" << std::endl;

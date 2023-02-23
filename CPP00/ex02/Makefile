@@ -6,11 +6,11 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/20 10:57:48 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/23 14:58:22 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main tests Account)
+SRCS	= $(addsuffix .cpp, tests Account)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= restored_file
@@ -34,7 +34,7 @@ flag:=1
 		@mkdir -p .build
 		@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 		@printf "\033[1;32m|\033[32m                                      \033[m\r"
-		@printf "\033[32mCompiling $@... \033[m\r"
+		@printf "\033[32m| Compiling $@... \033[m\r"
 
 $(NAME):$(OBJS)
 		@setterm -cursor on

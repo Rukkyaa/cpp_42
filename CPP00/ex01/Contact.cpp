@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:23:53 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/19 16:37:58 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:01:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	Contact::_set_first_name() {
 	{
 		std::cout << "Enter a first name : ";
 		std::getline(std::cin, tmp);
+		if (std::cin.eof())
+			exit(0);
 		valid = (tmp.empty()) ? false : true;
 		if (valid)
 			this->_first_name = tmp;
@@ -56,6 +58,8 @@ void	Contact::_set_last_name() {
 	{
 		std::cout << "Enter a last name : ";
 		std::getline(std::cin, tmp);
+		if (std::cin.eof())
+			exit(0);
 		valid = (tmp.empty()) ? false : true;
 		if (valid)
 			this->_last_name = tmp;
@@ -72,6 +76,8 @@ void	Contact::_set_nickname() {
 	{
 		std::cout << "Enter a nickname : ";
 		std::getline(std::cin, tmp);
+		if (std::cin.eof())
+			exit(0);
 		valid = (tmp.empty()) ? false : true;
 		if (valid)
 			this->_nickname = tmp;
@@ -88,6 +94,8 @@ void	Contact::_set_phone_number() {
 	{
 		std::cout << "Enter a phone number : ";
 		std::getline(std::cin, tmp);
+		if (std::cin.eof())
+			exit(0);
 		valid = (tmp.empty()) ? false : true;
 		if (valid)
 			this->_phone_number = tmp;
@@ -104,6 +112,8 @@ void	Contact::_set_darkest_secret() {
 	{
 		std::cout << "Enter a darkest secret : ";
 		std::getline(std::cin, tmp);
+		if (std::cin.eof())
+			exit(0);
 		valid = (tmp.empty()) ? false : true;
 		if (valid)
 			this->_darkest_secret = tmp;

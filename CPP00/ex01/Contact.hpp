@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:23:51 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/19 15:15:51 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:00:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <iomanip>
+# include <cstdlib>
 
 typedef	std::string string;
 
