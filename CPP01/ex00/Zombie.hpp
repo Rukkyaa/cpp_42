@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:41:54 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/20 13:21:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:40:35 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	Zombie {
 	public:
 		void	announce();
 		Zombie(string name);
+		Zombie();
 		~Zombie();
 	private:
 		string _name;
