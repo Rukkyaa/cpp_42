@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:41:54 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/20 15:59:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:14:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 # include <iostream>
-
+# include <cstdlib>
 typedef std::string string;
 
 class	Zombie {
