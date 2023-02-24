@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:58:32 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/23 15:02:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:19:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	PhoneBook::_search() {
 		if (std::cin.eof())
 			exit(0);
 		nb = std::atoi(input.c_str());
-		if ((nb == 0 && input[0] != '0') || this->_contacts[nb - 1]._get_first_name().empty())
+		if ((nb == 0 && input[0] != '0') || nb > 8 || this->_contacts[nb - 1]._get_first_name().empty())
 			std::cout << "Invalid input !" << std::endl;
 		else
 			break ;
