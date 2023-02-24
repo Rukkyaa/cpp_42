@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:22:26 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/24 17:21:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:49:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int main() {
 	PhoneBook	book;
 	string		input;
 	
-	book._nb_contact = 0;
 	while (1)
 	{
 		std::cout << "Enter a command: ";

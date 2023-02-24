@@ -6,11 +6,15 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:58:32 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/24 17:19:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:48:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook() {
+	this->_nb_contact = 0;
+}
 
 void	PhoneBook::_add() {
 	Contact	contact;
