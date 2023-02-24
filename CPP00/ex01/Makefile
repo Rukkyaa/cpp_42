@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 23:13:43 by rukkyaa           #+#    #+#              #
-#    Updated: 2023/02/18 16:23:15 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/02/24 17:26:43 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ NAME	= my_phone
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
-# HEADERS = -I includes/
+HEADERS = Contact.hpp PhoneBook.hpp
 
 flag:=1
-.build/%.o : %.cpp
+.build/%.o : %.cpp $(HEADERS)
 		@if [ $(flag) = "1" ]; then\
 			clear;\
 			printf "\033[1;35m========================================\n";\
@@ -33,7 +33,7 @@ flag:=1
 		@mkdir -p .build
 		@$(CC) $(CFLAGS) -c $< -o $@
 		@printf "\033[1;32m|\033[32m                                      \033[m\r"
-		@printf "\033[32mCompiling $@... \033[m\r"
+		@printf "\033[32m| Compiling $@... \033[m\r"
 
 $(NAME):$(OBJS)
 		@printf "\033[K\033[1;32m| Cpp Module00 : compiled              |\n\033[m"
