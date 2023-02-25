@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:04:33 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/20 17:15:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 23:20:29 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	main(void){
 	std::string *stringPTR = &str;
 	std::string &stringREF = str;
 
-	std::cout << "    String address: " << &str << std::endl;
-	std::cout << " StringPTR address: " << stringPTR << std::endl;
-	std::cout << "StringREF addresss: " << &stringREF << std::endl;
+	std::cout << "\033[1;34m    String address: \033[0;34m" << &str << std::endl;
+	std::cout << "\033[1;35m StringPTR address: \033[0;35m" << stringPTR << std::endl;
+	std::cout << "\033[1;32mStringREF addresss: \033[0;32m" << &stringREF << std::endl << std::endl;
 
 
-	std::cout << "\n   String value: " << str << std::endl;
-	std::cout << "StringPTR value: " << *stringPTR << std::endl;
-	std::cout << "StringREF value: " << stringREF << std::endl;
+	std::cout << "\033[1;34m   String value: \033[0;34m" << str << std::endl;
+	std::cout << "\033[1;35mStringPTR value: \033[0;35m" << *stringPTR << std::endl;
+	std::cout << "\033[1;32mStringREF value: \033[0;32m" << stringREF << std::endl;
 }
