@@ -6,14 +6,14 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/26 00:47:53 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/02/26 00:50:41 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= $(addsuffix .cpp, main HumanA HumanB Weapon)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
-NAME	= pointeur
+NAME	= human
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -g
