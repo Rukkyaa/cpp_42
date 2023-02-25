@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:25:02 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 23:32:19 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/25 23:40:07 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <iostream>
 #include <string>
-
-typedef std::string string;
 
 class	Weapon {
 	public:
