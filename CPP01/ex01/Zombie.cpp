@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:47:56 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 09:10:24 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/25 23:13:23 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ Zombie::Zombie() {
 
 Zombie::~Zombie() {
 	std::cout << "\033[0;30m" << this->_name << " destroyed ! 🪦\033[0m" << std::endl;
+}
+
+void	Zombie::set_name(std::string name) {
+	_name = name;
 }
 
 void	Zombie::announce() {

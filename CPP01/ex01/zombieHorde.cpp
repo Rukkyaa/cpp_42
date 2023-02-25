@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:55:32 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 09:18:35 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/25 23:13:37 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ Zombie	*zombieHorde(int N, std::string name) {
 	Zombie	*horde = new Zombie[N];
 
 	for (int i = 0; i < N; i ++)
-		horde[i]._name = name;
+		horde[i].set_name(name);
 	return (horde);
 }
