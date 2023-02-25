@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:22:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 23:38:35 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/26 00:41:49 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,22 @@
 int main()
 {
 	{
+		std::cout << "\033[1;29mHuman A(Norminet)!\033[0m" << std::endl << std::endl;
 		Weapon club = Weapon("knife 🔪");
-		HumanA bob("Bob", club);
-		bob.attack();
+		HumanA norminet("Norminet", club);
+		norminet.attack();
 		club.setType("axe 🪓");
-		bob.attack();
+		norminet.attack();
 	}
 	{
+		std::cout << std::endl << "\033[1;29mHuman B(Xavier Niel)!\033[0m" << std::endl << std::endl;
 		Weapon club = Weapon("pistol 🔫");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
+		HumanB xavier("Xavier Niel");
+		xavier.attack();
+		xavier.setWeapon(club);
+		xavier.attack();
 		club.setType("dagger 🗡️ ");
-		jim.attack();
+		xavier.attack();
 	}
 	return 0;
 }

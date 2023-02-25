@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:25:02 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 23:40:07 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/26 00:06:40 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class	Weapon {
 	public:
-		std::string	getType();
+		const std::string	&getType();
 		void		setType(std::string type);
 		Weapon();
 		Weapon(std::string type);

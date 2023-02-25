@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:33:28 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 23:23:59 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/26 00:23:44 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@
 class	HumanA {
 	public:
 		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
 		void		attack();
+	private:
 		std::string	_name;
 		Weapon		&_weapon;
+
 };
 
 #endif
