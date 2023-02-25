@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
+#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/20 17:47:48 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/26 00:47:53 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,11 @@ NAME	= pointeur
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -g
-HEADERS = -I includes/
+HEADERS = HumanA.hpp HumanB.hpp Weapon.hpp
+INCLUDE = -I ./
 
 flag:=1
-.build/%.o : %.cpp
+.build/%.o : %.cpp $(HEADERS)
 		@if [ $(flag) = "1" ]; then\
 			clear ;\
 			printf "\033[1;35m========================================\n";\
@@ -32,9 +33,9 @@ flag:=1
 		$(eval flag=$(shell echo $$(($(flag)+1))))
 		@setterm -cursor off
 		@mkdir -p .build
-		@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+		@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 		@printf "\033[1;32m|\033[32m                                      \033[m\r"
-		@printf "\033[32mCompiling $@... \033[m\r"
+		@printf "\033[32m| Compiling $@... \033[m\r"
 
 $(NAME):$(OBJS)
 		@setterm -cursor on
