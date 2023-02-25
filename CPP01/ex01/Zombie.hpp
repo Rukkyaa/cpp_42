@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:41:54 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 18:14:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 09:08:46 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@
 # include <string>
 # include <iostream>
 # include <cstdlib>
-typedef std::string string;
 
 class	Zombie {
 	public:
 		void	announce();
-		Zombie(string name);
+		Zombie(std::string name);
 		Zombie();
 		~Zombie();
-		string _name;
+		std::string _name;
 };
 
-Zombie	*zombieHorde(int N, string name);
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif

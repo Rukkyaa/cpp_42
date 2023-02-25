@@ -3,21 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:55:32 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 18:53:30 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/25 09:18:35 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*zombieHorde(int N, string name) {
-	if (N <= 0)
-	{
-		std::cout << "\033[1;31mError:" << "\033[0;30m the number of zombie in the horde can't be negative !\033[0m";
-		exit(0);
-	}
+Zombie	*zombieHorde(int N, std::string name) {
 	Zombie	*horde = new Zombie[N];
 
 	for (int i = 0; i < N; i ++)
