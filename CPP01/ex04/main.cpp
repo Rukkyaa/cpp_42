@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:30:02 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/26 15:53:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/26 16:53:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int	main(int argc, char **argv) {
 		std::cout << "\033[1;31mError \033[0;31mwhile opening the infile !" << std::endl;
 		return (EXIT_FAILURE);
 	}
-	while (std::getline(infile, buffer))
-		content += buffer + "\n";
-	content.pop_back();
+	content.assign(std::istreambuf_iterator<char>(infile), std::istreambuf_iterator<char>());
 	return (ft_replace(argv, content));
 }
