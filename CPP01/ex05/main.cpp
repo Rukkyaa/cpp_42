@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:20:22 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 18:36:11 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:54:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(void) {
 	Harl	client;
-	client.debug();
-	client.info();
-	client.warning();
-	client.error();
+	client.complain("DEBUG");
+	client.complain("INFO");
+	client.complain("WARNING");
+	client.complain("ERROR");
+	client.complain("NORMINET");
 }
