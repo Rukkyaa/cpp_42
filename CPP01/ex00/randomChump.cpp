@@ -6,12 +6,12 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 13:12:31 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/20 13:20:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 09:59:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void	randomChump(string name) {
+void	randomChump(std::string name) {
 	Zombie(name).announce();
 }
