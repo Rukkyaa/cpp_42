@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:36:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/26 00:25:52 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/28 10:19:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
 void	HumanA::attack() {
-	std::cout << "\033[1;33m" <<this->_name << "\033[0;33m attacks with their " << this->_weapon.getType() << std::endl;
+	std::cout << "\033[1;33m" <<_name << "\033[0;33m attacks with their " << this->_weapon.getType() << std::endl;
 }
 
 HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon) {

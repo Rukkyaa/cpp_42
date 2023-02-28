@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:23:52 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/26 00:35:36 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/28 10:16:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 const std::string	&Weapon::getType() {
-	return (this->_type);
+	return (_type);
 }
 
 void	Weapon::setType(std::string type) {
 	std::cout << "\033[1;35mWeapon: \033[0;35m" << _type << " become " << type << "!\033[0m" << std::endl;
-	this->_type = type;
+	_type = type;
 }
 
 Weapon::Weapon(std::string type) : _type(type){
