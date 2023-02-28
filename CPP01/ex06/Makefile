@@ -6,14 +6,14 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/27 19:12:37 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/28 10:25:52 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= $(addsuffix .cpp, main Harl)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
-NAME	= harl
+NAME	= HarlFilter
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -g
