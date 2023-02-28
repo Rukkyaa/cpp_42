@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:47:56 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 23:13:23 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/28 10:04:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string name) : _name(name){
-	std::cout << name << " created" << std::endl;
+	std::cout << _name << " created" << std::endl;
 }
 
-Zombie::Zombie() {
-	this->_name = "Unknown zombie";
+Zombie::Zombie() : _name("Unknown zombie"){
 	std::cout << _name << " created" << std::endl;
 }
 
 Zombie::~Zombie() {
-	std::cout << "\033[0;30m" << this->_name << " destroyed ! 🪦\033[0m" << std::endl;
+	std::cout << "\033[0;30m" << _name << " destroyed ! 🪦\033[0m" << std::endl;
 }
 
 void	Zombie::set_name(std::string name) {
@@ -30,5 +29,5 @@ void	Zombie::set_name(std::string name) {
 }
 
 void	Zombie::announce() {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ... 🧟" << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ... 🧟" << std::endl;
 }

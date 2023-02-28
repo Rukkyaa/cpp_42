@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:38:33 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 09:26:36 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/02/28 10:09:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int	main(int argc, char **argv) {
 	int nb;
 	
-	if (argc != 2)
+	if (argc != 2 || std::string(argv[1]).empty())
 	{
 		std::cout << "\033[1;31mError:" << "\033[0;31m To use the program, type \"./zombie_horde <number>\"!\033[0m" << std::endl;
 		exit(0);
 	}
 	nb = std::atoi(argv[1]);
-	if (nb<= 0)
+	if (nb <= 0)
 	{
-		std::cout << "\033[1;31mError:" << "\033[0;31m the number of zombie in the horde can't be negative or NULL(" << nb << ") !\033[0m" << std::endl;
+		std::cout << "\033[1;31mError:" << "\033[0;31m the number of zombie in the horde (" << argv[1] << ") can't be negative/NULL/NaN !\033[0m" << std::endl;
 		exit(0);
 	}
 	std::cout << "\033[1;31mCreating a huge zombie horde(" << nb << "):\033[0;31m" << std::endl;
