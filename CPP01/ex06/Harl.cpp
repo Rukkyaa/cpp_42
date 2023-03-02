@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:20:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 10:30:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:42:23 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	Harl::_warning(void) {
 }
 
 void	Harl::_error(void) {
-	std::cout << "\033[1;31m[INFO]\033[0;31m" << std::endl;
+	std::cout << "\033[1;31m[ERROR]\033[0;31m" << std::endl;
 	std::cout << "This is unacceptable ! I want to speak to the manager now.\033[0m" << std::endl;
 }
 

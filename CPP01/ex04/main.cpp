@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 14:30:02 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/02/26 16:53:34 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/01 16:41:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 
 int	ft_replace(char **argv, std::string content) {
 	std::ofstream	outfile;
 	int				pos;
 
-	outfile.open((std::string)argv[1] + ".replace");
+	outfile.open(((std::string)argv[1] + ".replace").c_str());
 	if (outfile.fail())
 	{
 		std::cout << "\033[1;31mError \033[0;31mwhile opening the outfile !" << std::endl;

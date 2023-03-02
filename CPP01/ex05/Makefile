@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/27 19:12:26 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/01 16:41:30 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJS	= $(SRCS:%.cpp=.build/%.o)
 NAME	= harl
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 INCLUDE = -I ./
 HEADER  = Harl.hpp
 
