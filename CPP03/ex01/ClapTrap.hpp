@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:22 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/13 19:19:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:54:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,17 @@
 # define BOLD_WHITE "\033[1;37m"
 
 class	ClapTrap {
-	private:
-		std::string			_name;
-		int					_hitPoint;
-		unsigned int		_energyPoint;
-		unsigned int		_attackDamage;
-		unsigned int		_maxHitPoint;
+	protected:
+		std::string	_name;
+		int			_hitPoint;
+		int			_energyPoint;
+		int			_attackDamage;
+		int			_maxHitPoint;
 	public:
 		ClapTrap			( void );
 		ClapTrap			( std::string name );
+		ClapTrap			( ClapTrap const & rhs );
+		ClapTrap			&operator=( ClapTrap const & rhs );
 		~ClapTrap			( void );
 		void	attack		( const std::string &target );
 		void	takeDamage	( unsigned int amount );

@@ -6,11 +6,11 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/13 18:35:38 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/14 12:05:51 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main ClapTrap)
+SRCS	= $(addsuffix .cpp, main ClapTrap ScavTrap)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= fixed
@@ -18,14 +18,14 @@ CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 INCLUDE = -I ./
-HEADER  = ClapTrap.hpp
+HEADER  = ClapTrap.hpp ScavTrap.hpp
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)
 		@if [ $(flag) = "1" ]; then\
 			clear ;\
 			printf "\033[1;35m========================================\n";\
-			printf "|          CPP03 EX00 LOADING...       |\n";\
+			printf "|          CPP03 EX01 LOADING...       |\n";\
 			printf "========================================\n";\
 			printf "|                                      |\n";\
 			printf "|                                      |\n\033[A\033[A";\
@@ -39,7 +39,7 @@ flag:=1
 
 $(NAME):$(OBJS)
 		@setterm -cursor on
-		@printf "\033[K\033[1;32m| CPP03 Ex00 : compiled                |\n\033[m"
+		@printf "\033[K\033[1;32m| CPP03 Ex01 : compiled                |\n\033[m"
 		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@printf "\033[1;32m========================================\n"
 		@printf "|          COMPILATION FINISHED !      |\n"
@@ -49,7 +49,7 @@ all: $(NAME)
 
 clean:
 			@printf "\033[1;31m========================================\n"
-			@printf "|           CPP03 EX00 CLEANING        |\n"
+			@printf "|           CPP03 EX01 CLEANING        |\n"
 			@printf "========================================\n\033[m"
 			@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 			@$(RM) .build

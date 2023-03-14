@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 12:55:39 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:52:57 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ ClapTrap	&ClapTrap::operator=( ClapTrap const & rhs ) {
 */
 void	ClapTrap::attack( const std::string &target) {
 	if (_energyPoint) {
-		std::cout << BOLD_CYAN"[Clap trap] Attacked " << target << CYAN" and dealt " << _attackDamage << " damages !" << std::endl;
+		std::cout << BOLD_CYAN"[Clap trap] " CYAN<< _name << " attacked " << target << " and dealt " << _attackDamage << " damages !" << std::endl;
 		_energyPoint -= 1;
 	} else
 		std::cout << BOLD_RED"[Clap trap] ERROR " RED << _name << " doesn't have enough energy points to attack ! " << std::endl;
