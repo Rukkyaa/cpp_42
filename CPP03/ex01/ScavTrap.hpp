@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:37:37 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 12:48:54 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:55:11 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class	ScavTrap : public ClapTrap {
 		ScavTrap	( std::string name );
 		~ScavTrap	( void );
 		void		attack( const std::string &target );
+		void		guardGate( void );
 };
 
 #endif
