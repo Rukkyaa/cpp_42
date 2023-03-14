@@ -6,14 +6,14 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/14 14:00:35 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/14 15:40:01 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= $(addsuffix .cpp, main ClapTrap ScavTrap FragTrap)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
-NAME	= fixed
+NAME	= fragTrap
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
