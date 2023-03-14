@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:37:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:10:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:46:44 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 */
 FragTrap::FragTrap( void ) : ClapTrap() {
 	std::cout << BOLD_GREEN"[Frag trap] " GREEN << _name << " created !" << std::endl;
-	_hitPoint = 100;
+	_hitPoint = FRAG_HIT_POINT;
 	_maxHitPoint = _hitPoint;
-	_energyPoint = 100;
-	_attackDamage = 30;
+	_energyPoint = FRAG_ENERGY_POINT;
+	_attackDamage = FRAG_ATTACK_DAMAGE;
 }
 
 /*
@@ -38,10 +38,10 @@ FragTrap::FragTrap( void ) : ClapTrap() {
 */
 FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
 	std::cout << BOLD_GREEN"[Frag trap] " GREEN << _name << " created !" << std::endl;
-	_hitPoint = 100;
+	_hitPoint = FRAG_HIT_POINT;
 	_maxHitPoint = _hitPoint;
-	_energyPoint = 100;
-	_attackDamage = 30;
+	_energyPoint = FRAG_ENERGY_POINT;
+	_attackDamage = FRAG_ATTACK_DAMAGE;
 }
 
 /*
