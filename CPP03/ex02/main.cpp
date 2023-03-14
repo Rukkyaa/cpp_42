@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 15:39:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:43:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ int	main(void) {
 	alan.attack("Alan");
 	alan.highFivesGuys();
 	alan.beRepaired(1);
+
+	return (0);
 }
