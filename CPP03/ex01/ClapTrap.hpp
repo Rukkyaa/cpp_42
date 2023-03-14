@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:22 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 11:54:37 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:41:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@
 # define BOLD_MAGENTA "\033[1;35m"
 # define BOLD_CYAN "\033[1;36m"
 # define BOLD_WHITE "\033[1;37m"
+
+# define CLAP_HIT_POINT 10
+# define CLAP_ENERGY_POINT 10
+# define CLAP_ATTACK_DAMAGE 0
 
 class	ClapTrap {
 	protected:

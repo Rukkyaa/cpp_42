@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:37:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:10:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:42:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 */
 ScavTrap::ScavTrap( void ) : ClapTrap() {
 	std::cout << BOLD_GREEN"[Scav trap] " GREEN << _name << " created !" << std::endl;
-	_hitPoint = 100;
+	_hitPoint = SCAV_HIT_POINT;
 	_maxHitPoint = _hitPoint;
-	_energyPoint = 50;
-	_attackDamage = 20;
+	_energyPoint = SCAV_ENERGY_POINT;
+	_attackDamage = SCAV_ATTACK_DAMAGE;
 }
 
 /*
@@ -38,10 +38,10 @@ ScavTrap::ScavTrap( void ) : ClapTrap() {
 */
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
 	std::cout << BOLD_GREEN"[Scav trap] " GREEN << _name << " created !" << std::endl;
-	_hitPoint = 100;
+	_hitPoint = SCAV_HIT_POINT;
 	_maxHitPoint = _hitPoint;
-	_energyPoint = 50;
-	_attackDamage = 20;
+	_energyPoint = SCAV_ENERGY_POINT;
+	_attackDamage = SCAV_ATTACK_DAMAGE;
 }
 
 /*
