@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:37:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 15:24:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:29:30 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ ScavTrap::ScavTrap( ScavTrap const & rhs ) : ClapTrap(rhs) {
 ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
 	if (this == &rhs)
 		return *this;
-	_name = rhs._name;
 	_hitPoint = rhs._hitPoint;
 	_energyPoint = rhs._energyPoint;
 	_maxHitPoint = rhs._maxHitPoint;
