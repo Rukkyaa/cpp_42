@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:37:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:42:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:24:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,38 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
 	_maxHitPoint = _hitPoint;
 	_energyPoint = SCAV_ENERGY_POINT;
 	_attackDamage = SCAV_ATTACK_DAMAGE;
+}
+
+/*
+** ScavTrap's copy constructor, initialize the ScavTrap with the attributes of
+** the given ScavTrap. It also display a message to say that the ScavTrap has
+** been created.
+**
+** @param  target : the ScavTrap to copy
+** @return none
+*/
+ScavTrap::ScavTrap( ScavTrap const & rhs ) : ClapTrap(rhs) {
+	*this = rhs;
+	std::cout << BOLD_GREEN"[Scav trap] " GREEN << _name << " created by copy !" << std::endl;
+}
+
+/*
+** ScavTrap's assignement operator, initialize the ScavTrap with the attributes
+** of the given ScavTrap. It also display a message to say that the ScavTrap has
+** been created.
+**
+** @param  target : the ScavTrap to copy
+** @return none
+*/
+ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
+	if (this == &rhs)
+		return *this;
+	_name = rhs._name;
+	_hitPoint = rhs._hitPoint;
+	_energyPoint = rhs._energyPoint;
+	_maxHitPoint = rhs._maxHitPoint;
+	std::cout << BOLD_GREEN"[Scav trap] " GREEN << _name << " created by assignement !" << std::endl;
+	return (*this);
 }
 
 /*

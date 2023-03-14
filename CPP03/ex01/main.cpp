@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 13:56:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:24:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,24 @@ int	main(void) {
 	alan.attack("Alan");
 	alan.guardGate();
 	alan.beRepaired(1);
+
+	axel.attack("Alan");
+	axel.attack("Alan");
+	axel.attack("Alan");
+	axel.takeDamage(2);
+	axel.beRepaired(2);
+	axel.takeDamage(6);
+	axel.takeDamage(6);
+	axel.beRepaired(10);
+	axel.takeDamage(6);
+	axel.beRepaired(10);
+	axel.attack("Alan");
+	axel.beRepaired(10);
+	axel.attack("Alan");
+	axel.attack("Alan");
+	axel.attack("Alan");
+	axel.attack("Alan");
+	axel.attack("Alan");
+	axel.guardGate();
+	axel.beRepaired(1);
 }
