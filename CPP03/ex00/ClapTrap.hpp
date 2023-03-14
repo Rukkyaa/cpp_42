@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:22 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:37:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:42:51 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@
 # define BOLD_CYAN "\033[1;36m"
 # define BOLD_WHITE "\033[1;37m"
 
-# define HIT_POINT 10
-# define ENERGY_POINT 10
-# define ATTACK_DAMAGE 0
+# define CLAP_HIT_POINT 10
+# define CLAP_ENERGY_POINT 10
+# define CLAP_ATTACK_DAMAGE 0
 
 class	ClapTrap {
 	private:
