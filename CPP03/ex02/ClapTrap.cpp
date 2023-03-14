@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 12:52:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:22:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ ClapTrap::ClapTrap( void ) :
 	_name("Nameless"),
 	_hitPoint(10),
 	_energyPoint(10),
-	_attackDamage(0){
+	_attackDamage(0),
+	_maxHitPoint(_hitPoint) {
 		std::cout << BOLD_GREEN"[Clap trap] " GREEN << _name << " created !" << std::endl;
 }
 
@@ -41,7 +42,7 @@ ClapTrap::ClapTrap( std::string name ) :
 	_hitPoint(10),
 	_energyPoint(10),
 	_attackDamage(0),
-	_maxHitPoint(10){
+	_maxHitPoint(_hitPoint){
 		std::cout << BOLD_GREEN"[Clap trap] " GREEN << _name << " created !" << std::endl;
 }
 
