@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:37:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:46:44 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:28:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
 	_maxHitPoint = _hitPoint;
 	_energyPoint = FRAG_ENERGY_POINT;
 	_attackDamage = FRAG_ATTACK_DAMAGE;
+}
+
+FragTrap::FragTrap( FragTrap const & rhs ) : ClapTrap(rhs) {
+	*this = rhs;
+	std::cout << BOLD_GREEN"[Frag trap] " GREEN << _name << " created by copy !" << std::endl;
+}
+
+FragTrap	&FragTrap::operator=( FragTrap const & rhs )
+{
+	if (this == &rhs)
+		return (*this);
+	_hitPoint = rhs._hitPoint;
+	_maxHitPoint = rhs._maxHitPoint;
+	_energyPoint = rhs._energyPoint;
+	std::cout << BOLD_GREEN"[Frag trap] " GREEN << _name << " created by assignement !" << std::endl;
+	return (*this);
 }
 
 /*
