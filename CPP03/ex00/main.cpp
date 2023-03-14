@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:38:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:42:51 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ int	main(void) {
 	axel.attack("Alan");
 	axel.attack("Alan");
 	axel.beRepaired(1);
+
+	return (0);
 }
