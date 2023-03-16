@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/16 16:04:02 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/16 16:25:53 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ flag:=1
 		@if [ $(flag) = "1" ]; then\
 			clear ;\
 			printf "\033[1;35m========================================\n";\
-			printf "|          CPP03 EX03 LOADING...       |\n";\
+			printf "|          CPP04 EX00 LOADING...       |\n";\
 			printf "========================================\n";\
 			printf "|                                      |\n";\
 			printf "|                                      |\n\033[A\033[A";\
@@ -40,7 +40,7 @@ flag:=1
 
 $(NAME):$(OBJS)
 		@setterm -cursor on
-		@printf "\033[K\033[1;32m| CPP03 Ex03 : compiled                |\n\033[m"
+		@printf "\033[K\033[1;32m| CPP04 Ex00 : compiled                |\n\033[m"
 		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@printf "\033[1;32m========================================\n"
 		@printf "|          COMPILATION FINISHED !      |\n"
@@ -50,7 +50,7 @@ all: $(NAME)
 
 clean:
 			@printf "\033[1;31m========================================\n"
-			@printf "|           CPP03 EX03 CLEANING        |\n"
+			@printf "|           CPP04 EX00 CLEANING        |\n"
 			@printf "========================================\n\033[m"
 			@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 			@$(RM) .build
