@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:25:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 16:55:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:02:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class	Dog : public Animal {
 		string	getType		( void ) const;
 		string	getName		( void ) const;
 		void	makeSound	( void ) const;
+		void	addIdea		( string ) const;
+		void	printIdeas	( void ) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:19:12 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 18:01:38 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:09:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,17 @@ int main()
 {
 	std::srand(std::time(0));
 	BrainTest();
+
+	// Uncomment the following lines to see the subject's main
+	// Animal	*array[10];
+	// for (int i = 0; i < 10; i++)
+	// 	if (i % 2 == 0)
+	// 		array[i] = new Dog();
+	// 	else
+	// 		array[i] = new Cat();
+	// for (int i = 0; i < 10; i++)
+	// 	array[i]->makeSound();
+	// for (int i = 0; i < 10; i++)
+	// 	delete array[i];
 	return (0);
 }

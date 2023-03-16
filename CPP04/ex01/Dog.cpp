@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:28:31 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 16:59:21 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:02:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,24 @@ string	Dog::getName( void ) const {
 */
 void	Dog::makeSound( void ) const {
 	cout << BOLD_MAGENTA << "[Dog] " << _name << ": \033[3m*Woafff*" RESET << endl;
+}
+
+/*
+** Dog's function to add an idea to the brain. Print a message to say that the Dog is adding an idea.
+**
+** @param string idea
+** @return void
+*/
+void	Dog::addIdea( string idea ) const {
+	_brain->addIdea(idea);
+}
+
+/*
+** Dog's function to print all the ideas of the brain. Print a message to say that the Dog is printing all the ideas.
+**
+** @param void
+** @return void
+*/
+void	Dog::printIdeas( void ) const {
+	_brain->printIdeas();
 }
