@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:19:12 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 17:40:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:01:38 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,29 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include "Brain.hpp"
+
+int getRandomNumber(int min, int max) {
+    int randomNum = std::rand() % (max - min + 1) + min; // Générer un nombre entier aléatoire entre min et max inclus
+
+    return randomNum; // Retourner le nombre aléatoire généré
+}
+
+string	getRandomIdea(int i) {
+	string	ideas[10] = {
+		"I want to eat a pizza 🍕",
+		"I want to eat a burger 🍔",
+		"I want to eat a hot dog 🌭",
+		"I want to eat a sandwich 🥪",
+		"I want to eat a salad 🥗",
+		"I want to eat a soup 🥣",
+		"I want to eat a cake 🍰",
+		"I want to eat a ice cream 🍦",
+		"I want to eat a chocolate 🍫",
+		"I want to eat a donut 🍩"
+	};
+
+	return ideas[i];
+}
 
 void	BrainTest( void ) {
 	cin.get();
@@ -40,29 +63,52 @@ void	BrainTest( void ) {
 	garfield->makeSound();
 
 	cin.get();
-	cout << BOLD_YELLOW"[0\33[3mWhat happens when we print an empty brain ? 🤔 :" RESET << endl;
+	cout << BOLD_YELLOW"[\033[3mWhat happens when we print an empty brain ? 🤔 :" RESET << endl;
 	garfield->printIdeas();
-	cout << BOLD_YELLOW"[0\33[3mWhat happens when we add an empty idea in the brain ? 🤔 :" RESET << endl;
+	cout << BOLD_YELLOW"[\033[3mWhat happens when we add an empty idea in the brain ? 🤔 :" RESET << endl;
 	garfield->addIdea("");
-	cout << BOLD_BLUE"Now, we will fill his little brain ! 🧠 :" BLUE << endl;
+	cout << endl << BOLD_BLUE"Now, we will fill his little brain ! 🧠" BLUE << endl;
+
 	// Uncomment the following lines to see how to handle + 100 ideas
 	// for (int i = 0; i < 101; i++)
-	// 	garfield->addIdea("Idea ");
-	// garfield->printIdeas();
-	garfield->addIdea("I am a cat");
-	garfield->addIdea("I like to eat fish");
-	garfield->addIdea("I like to sleep");
-	garfield->addIdea("I like to play with my owner");
+	// {
+	// 	garfield->addIdea(getRandomIdea(getRandomNumber(0, 9)));
+	// 	cout << getRandomNumber(0, 9) << endl;
+	// }
 	
-	// cout << YELLOW"\033[3mCopy constructor" RESET << endl;
-	// const Cat	norminet_copy(*garfield);
+	// LOOP TO ADD IDEAS TO THE BRAIN OF THE CAT 🧠
+	string	input;
+	while (input != "exit")
+	{
+		cout << BOLD_CYAN"Please enter an idea for the cat 🧠 :" CYAN << endl;
+		getline(cin, input);
+		if (cin.eof())
+			break ;
+		if (input == "exit")
+			break ;
+		garfield->addIdea(input);
+	}
+	garfield->printIdeas();
+	
+	cin.get();
+	cout << BOLD_YELLOW"\033[3mWhat happens when we init a new cat with the copy constructor ? 🤔 :" RESET << endl;
+	cout << YELLOW"\033[3mCopy constructor" RESET << endl;
+	
+	cin.get();
+	const Cat	garfield_copy(*garfield);
+	cin.get();
+	cout << BOLD_YELLOW"\033[3mWhat happens when we print the ideas of the copy cat ? 🤔 :" RESET << endl;
+	garfield_copy.printIdeas();
+
+	cin.get();
 	cout << BOLD_RED"Destruction of the cats:" << endl;
-	
+
 	delete garfield;
 }
 
 int main()
 {
+	std::srand(std::time(0));
 	BrainTest();
 	return (0);
 }

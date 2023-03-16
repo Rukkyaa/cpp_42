@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:15:28 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 15:32:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:45:51 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <ctime>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
