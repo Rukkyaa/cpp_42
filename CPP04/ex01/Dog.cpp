@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:28:31 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 16:08:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:59:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 Dog::Dog( void ) : Animal("Wild dog"){
 	_type = "Dog";
 	_name = "Wild Dog";
+	_brain = new Brain();
 	cout << BOLD_GREEN"[Dog] " GREEN << _name << " created !" << endl;
 }
 
@@ -35,6 +36,7 @@ Dog::Dog( void ) : Animal("Wild dog"){
 Dog::Dog( string name ) : Animal(name) {
 	_type = "Dog";
 	_name = name;
+	_brain = new Brain();
 	cout << BOLD_GREEN"[Dog] " GREEN << _name << " created !" << endl;
 }
 
@@ -42,11 +44,11 @@ Dog::Dog( string name ) : Animal(name) {
 ** Dog's copy constructor, set type to "Dog" and name to the given parameter and print
 ** a message to say that the Dog is alive.
 **
-** @param Dog const & src
+** @param Dog const &rhs
 ** @return void
 */
-Dog::Dog( Dog const & src ) : Animal(src){
-	*this = src;
+Dog::Dog( Dog const &rhs ) : Animal(rhs){
+	*this = rhs;
 	cout << BOLD_GREEN"[Dog] " GREEN << _name << " created by copy" << endl;
 }
 
@@ -54,14 +56,15 @@ Dog::Dog( Dog const & src ) : Animal(src){
 ** Dog's assignation operator overload, set type to "Dog" and name to the given parameter and print
 ** a message to say that the Dog is alive.
 **
-** @param Dog const & src
+** @param Dog const &rhs
 ** @return Dog
 */
-Dog	&Dog::operator=( Dog const & src ) {
-	if (this != &src)
+Dog	&Dog::operator=( Dog const &rhs ) {
+	if (this != &rhs)
 	{
-		_type = src.getType();
-		_name = src.getName();
+		_type = rhs.getType();
+		_name = rhs.getName();
+		_brain = new Brain(*rhs._brain);
 	}
 	cout << BOLD_GREEN"[Dog] " GREEN << _name << " created by assignation " << endl;
 	return (*this);
@@ -74,6 +77,7 @@ Dog	&Dog::operator=( Dog const & src ) {
 ** @return void
 */
 Dog::~Dog( void ) {
+	delete _brain;
 	cout << BOLD_RED"[Dog] " RED << _name << " destroyed !" RESET << endl;
 }
 
