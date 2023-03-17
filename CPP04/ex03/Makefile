@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/17 09:30:36 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/17 10:47:41 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, AMateria)
+HEADER  = $(addsuffix .hpp, AMateria ICharacter)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)
