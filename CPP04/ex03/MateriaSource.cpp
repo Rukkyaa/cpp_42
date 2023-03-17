@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:05:59 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 13:15:43 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:34:35 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ MateriaSource	&MateriaSource::operator=( MateriaSource const &rhs ) {
 		_count = rhs._count;
 	}
 	#ifdef DEBUG
-		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+		cout << BOLD_GREEN << "[" << typeid(*this).name() + 2 << "] " RESET UNDERLINE_WHITE;
 		cout <<  "MateriaSource assignation operator called !" << RESET << endl;
 	#endif
 	return (*this);
@@ -72,7 +72,7 @@ MateriaSource	&MateriaSource::operator=( MateriaSource const &rhs ) {
 */
 MateriaSource::~MateriaSource( void ) {
 	#ifdef DEBUG
-		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+		cout << BOLD_RED << "[" << typeid(*this).name() + 2 << "] " RESET UNDERLINE_WHITE;
 		cout <<  "MateriaSource destroyed !" << RESET << endl;
 	#endif
 	for (int i = 0; i < MAX_MATERIA; i++)
