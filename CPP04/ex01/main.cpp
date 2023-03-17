@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:19:12 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 18:09:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:28:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,7 @@ void	BrainTest( void ) {
 
 	// Uncomment the following lines to see how to handle + 100 ideas
 	// for (int i = 0; i < 101; i++)
-	// {
 	// 	garfield->addIdea(getRandomIdea(getRandomNumber(0, 9)));
-	// 	cout << getRandomNumber(0, 9) << endl;
-	// }
 	
 	// LOOP TO ADD IDEAS TO THE BRAIN OF THE CAT 🧠
 	string	input;
