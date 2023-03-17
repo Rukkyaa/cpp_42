@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:30:03 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:48:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:55:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ AMateria	*Cure::clone( void ) const {
 ** @return void
 */
 void		Cure::use( ICharacter &target ) {
-	cout << BOLD_BLUE << "* heals " << target.getName() << "'s wounds *" << RESET << endl;
+	cout << BOLD_BLUE << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+	cout << BLUE << "* heals " RESET UNDERLINE_WHITE << target.getName() << BLUE"'s wounds *" << RESET << endl;
 }

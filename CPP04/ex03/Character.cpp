@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 10:55:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:23:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:55:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,8 @@ void			Character::equip( AMateria *materia ) {
 		if (!_inventory[i]) {
 			_inventory[i] = materia;
 			_materiaCount++;
-			cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
-			cout <<  _name << GREEN" equiped materia at index " << i << RESET << endl;
+			cout << BOLD_YELLOW << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+			cout <<  _name << YELLOW" equiped materia at index " << i << RESET << endl;
 			return ;
 		}
 	}
@@ -150,8 +150,8 @@ void			Character::unequip( int idx ) {
 	} else {
 		_inventory[idx] = NULL;
 		_materiaCount--;
-		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
-		cout <<  _name << GREEN" unequiped materia at index " << idx << RESET << endl;
+		cout << BOLD_YELLOW << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+		cout <<  _name << YELLOW" unequiped materia at index " << idx << RESET << endl;
 	}
 }
 

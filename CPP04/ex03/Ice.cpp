@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:30:03 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:42:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:56:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ AMateria	*Ice::clone( void ) const {
 ** @return void
 */
 void		Ice::use( ICharacter &target ) {
-	cout << BOLD_BLUE << "* shoots an ice bolt at " << target.getName() << " *" << RESET << endl;
+	cout << BOLD_BLUE << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+	cout << BLUE << "* shoots an ice bolt at " RESET UNDERLINE_WHITE<< target.getName() << BLUE" *" << RESET << endl;
 }
