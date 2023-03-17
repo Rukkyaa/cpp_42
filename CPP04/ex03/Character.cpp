@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 10:55:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 13:13:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:21:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,12 @@ Character	&Character::operator=( Character const &rhs ) {
 		_name = rhs._name;
 		_materiaCount = rhs._materiaCount;
 		for (int i = 0; i < MAX_MATERIA; i++)
-			_inventory[i] = rhs._inventory[i];
+		{
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+		}
 	}
 	#ifdef DEBUG
 		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
