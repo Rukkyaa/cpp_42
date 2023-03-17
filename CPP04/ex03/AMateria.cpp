@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 08:41:54 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 09:35:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:12:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,15 @@ AMateria::~AMateria( void ) {
 */
 string const	&AMateria::getType() const {
 	return (_type);
+}
+
+/*
+** AMateria's use method, display a message to say that the AMateria is used.
+**
+** @param ICharacter &target
+** @return void
+*/
+void	AMateria::use(ICharacter& target) {
+	cout << BOLD_YELLOW << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+	cout << _type << YELLOW" use on " << target.getName() << endl;
 }

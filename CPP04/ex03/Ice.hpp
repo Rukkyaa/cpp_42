@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 18:31:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:24:48 by axlamber         ###   ########.fr       */
+/*   Created: 2023/03/17 12:25:15 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/17 12:27:11 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-int	main( void ) {
-	Character* zaz = new Character("zaz");
-	AMateria	test("Wood");
-	
-	zaz->equip(&test);
-	Character* bob = new Character(*zaz);
-	delete zaz;
-	bob->use(0, *bob);
-	delete bob;
-	return (0);
-}
+# include "AMateria.hpp"
+
+class Ice : public AMateria {
+	public:
+		Ice							( void );
+		Ice							( Ice const &rhs );
+		virtual ~Ice				( void );
+		Ice 			&operator=	( Ice const &rhs );
+		AMateria		*clone		( void ) const;
+		void			use			( ICharacter &target);
+};
+
+#endif

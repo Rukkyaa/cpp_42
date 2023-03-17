@@ -6,16 +6,23 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 08:34:53 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 09:29:10 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:24:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
+
 # include <iostream>
 # include <typeinfo>
 # include <string>
+
+using	std::string;
+using	std::cout;
+using	std::endl;
+
+# include "ICharacter.hpp"
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -46,23 +53,21 @@
 
 # define RESET "\033[0m"
 
-using	std::string;
-using	std::cout;
-using	std::endl;
 
-class	AMateria
-{
+class	ICharacter;
+
+class	AMateria {
 	protected:
 		string	_type;
 	public:
 		AMateria						( string const &type );
 		AMateria						( const AMateria &rhs );
 		AMateria			&operator=	( const AMateria &rhs );
-		~AMateria						( void );
+		virtual ~AMateria				( void );
 		
 		string const		&getType	( void ) const;
-		// virtual AMateria	*clone		() const = 0;
-		// virtual void		use()
+		virtual AMateria	*clone		() const = 0;
+		virtual void		use			( ICharacter &target);
 };
 
 #endif

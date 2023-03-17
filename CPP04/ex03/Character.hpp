@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 10:48:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 10:55:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:14:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "AMateria.hpp"
 
 # define MAX_MATERIA 4
+
 
 class Character : public ICharacter
 {

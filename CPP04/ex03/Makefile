@@ -6,11 +6,11 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/17 10:47:41 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/17 11:19:11 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main AMateria)
+SRCS	= $(addsuffix .cpp, main AMateria Character)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= animal
@@ -19,7 +19,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, AMateria ICharacter)
+HEADER  = $(addsuffix .hpp, AMateria ICharacter Character)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)

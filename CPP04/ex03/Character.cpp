@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 10:55:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 11:08:36 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:23:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ Character::Character( Character const &rhs ) {
 ** @return Character
 */
 Character	&Character::operator=( Character const &rhs ) {
-	#ifdef DEBUG
-		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
-		cout <<  _name << GREEN" created by assignation !" << RESET << endl;
-	#endif
 	if (this != &rhs) {
 		_name = rhs._name;
 		_materiaCount = rhs._materiaCount;
 		for (int i = 0; i < MAX_MATERIA; i++)
 			_inventory[i] = rhs._inventory[i];
 	}
+	#ifdef DEBUG
+		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+		cout <<  _name << GREEN" created by assignation !" << RESET << endl;
+	#endif
 	return (*this);
 }
 
@@ -88,12 +88,12 @@ Character	&Character::operator=( Character const &rhs ) {
 ** @return void
 */
 Character::~Character( void ) {
-	for (int i = 0; i < MAX_MATERIA; i++)
-		if (_inventory[i])
-			delete _inventory[i];
+	// for (int i = 0; i < MAX_MATERIA; i++)
+	// 	if (_inventory[i])
+	// 		delete _inventory[i];
 	#ifdef DEBUG
-		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
-		cout <<  _name << GREEN" destroyed !" << RESET << endl;
+		cout << BOLD_RED << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
+		cout <<  _name << RED" destroyed !" << RESET << endl;
 	#endif
 }
 
@@ -148,7 +148,6 @@ void			Character::unequip( int idx ) {
 		cout << BOLD_RED << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
 		cout <<  _name << RED" can't unequip NULL materia !" << RESET << endl;
 	} else {
-		delete _inventory[idx];
 		_inventory[idx] = NULL;
 		_materiaCount--;
 		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
