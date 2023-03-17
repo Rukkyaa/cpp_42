@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 18:31:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:52:43 by axlamber         ###   ########.fr       */
+/*   Created: 2023/03/17 12:38:53 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/17 12:39:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-int	main( void ) {
-	Character* zaz = new Character("zaz");
-	Ice			test;
-	Cure		cure;
-	
-	zaz->equip(&test);
-	zaz->equip(&cure);
-	zaz->equip(&cure);
-	Character* bob = new Character(*zaz);
-	bob->use(0, *bob);
-	bob->use(1, *bob);
-	bob->use(2, *bob);
-	bob->use(1, *bob);
-	bob->use(3, *bob);
-	
-	delete zaz;
-	delete bob;
-	return (0);
-}
+# include "AMateria.hpp"
+
+class Cure : public AMateria {
+	public:
+		Cure							( void );
+		Cure							( Cure const &rhs );
+		virtual ~Cure					( void );
+		Cure 			&operator=		( Cure const &rhs );
+		AMateria		*clone			( void ) const;
+		void			use				( ICharacter &target);
+};
+
+#endif

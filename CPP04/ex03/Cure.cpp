@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:30:03 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:42:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:48:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Cure.hpp"
 
 /*
-** Ice's default constructor, set type to "ice".
-** a message to say that the Ice is created is displayed if DEBUG is defined.
+** Cure's default constructor, set type to "cure".
+** a message to say that the Cure is created is displayed if DEBUG is defined.
 **
 ** @param void
 ** @return void
 */
-Ice::Ice( void ) : AMateria("ice") {
+Cure::Cure( void ) : AMateria("cure") {
 	#ifdef DEBUG
 		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
 		cout <<  _type << GREEN" created !" << RESET << endl;
@@ -27,13 +27,13 @@ Ice::Ice( void ) : AMateria("ice") {
 }
 
 /*
-** Ice's copy constructor, copy the given Ice.
-** a message to say that the Ice is created is displayed if DEBUG is defined.
+** Cure's copy constructor, copy the given Cure.
+** a message to say that the Cure is created is displayed if DEBUG is defined.
 **
-** @param Ice const &rhs
+** @param Cure const &rhs
 ** @return void
 */
-Ice::Ice( Ice const &rhs ) : AMateria(rhs) {
+Cure::Cure( Cure const &rhs ) : AMateria(rhs) {
 	*this = rhs;
 	#ifdef DEBUG
 		cout << BOLD_GREEN << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
@@ -42,13 +42,13 @@ Ice::Ice( Ice const &rhs ) : AMateria(rhs) {
 }
 
 /*
-** Ice's operator= overload, copy the given Ice.
-** a message to say that the Ice is created is displayed if DEBUG is defined.
+** Cure's operator= overload, copy the given Cure.
+** a message to say that the Cure is created is displayed if DEBUG is defined.
 **
-** @param Ice const &rhs
-** @return Ice
+** @param Cure const &rhs
+** @return Cure
 */
-Ice	&Ice::operator=( Ice const &rhs ) {
+Cure	&Cure::operator=( Cure const &rhs ) {
 	if (this != &rhs)
 		_type = rhs._type;
 	#ifdef DEBUG
@@ -59,13 +59,13 @@ Ice	&Ice::operator=( Ice const &rhs ) {
 }
 
 /*
-** Ice's default destructor, set type to "ice".
-** a message to say that the Ice is destroyed is displayed if DEBUG is defined.
+** Cure's default destructor, set type to "cure".
+** a message to say that the Cure is destroyed is displayed if DEBUG is defined.
 **
 ** @param void
 ** @return void
 */
-Ice::~Ice( void ) {
+Cure::~Cure( void ) {
 	#ifdef DEBUG
 		cout << BOLD_RED << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
 		cout <<  _type << RED" destroyed !" << RESET << endl;
@@ -73,21 +73,21 @@ Ice::~Ice( void ) {
 }
 
 /*
-** Ice's clone method, create a new Ice.
+** Cure's clone method, create a new Cure.
 **
 ** @param void
 ** @return AMateria*
 */
-AMateria	*Ice::clone( void ) const {
-	return (new Ice(*this));
+AMateria	*Cure::clone( void ) const {
+	return (new Cure(*this));
 }
 
 /*
-** Ice's use method, display a message.
+** Cure's use method, display a message.
 **
 ** @param ICharacter const &target
 ** @return void
 */
-void		Ice::use( ICharacter &target ) {
-	cout << BOLD_BLUE << "* shoots an ice bolt at " << target.getName() << " *" << RESET << endl;
+void		Cure::use( ICharacter &target ) {
+	cout << BOLD_BLUE << "* heals " << target.getName() << "'s wounds *" << RESET << endl;
 }
