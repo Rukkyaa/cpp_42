@@ -6,20 +6,20 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/16 18:31:07 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/17 09:30:36 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main)
+SRCS	= $(addsuffix .cpp, main AMateria)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= animal
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 INCLUDE = -I ./
-HEADER  = 
+HEADER  = $(addsuffix .hpp, AMateria)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)
@@ -47,6 +47,10 @@ $(NAME):$(OBJS)
 		@printf "========================================\n\033[m"
 
 all: $(NAME)
+
+debug: CFLAGS += -D DEBUG
+debug: all
+	@./$(NAME)
 
 clean:
 			@printf "\033[1;31m========================================\n"

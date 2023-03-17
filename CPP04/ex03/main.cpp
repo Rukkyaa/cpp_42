@@ -6,7 +6,14 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/16 18:31:14 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 08:49:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AMateria.hpp"
+
+int	main( void ) {
+	AMateria	test("Wood");
+	
+	return (0);
+}
