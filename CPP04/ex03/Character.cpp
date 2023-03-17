@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 10:55:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:55:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:13:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ Character	&Character::operator=( Character const &rhs ) {
 ** @return void
 */
 Character::~Character( void ) {
-	// for (int i = 0; i < MAX_MATERIA; i++)
-	// 	if (_inventory[i])
-	// 		delete _inventory[i];
+	for (int i = 0; i < MAX_MATERIA; i++)
+		if (_inventory[i])
+			delete _inventory[i];
 	#ifdef DEBUG
 		cout << BOLD_RED << "[" << typeid(*this).name() + 1 << "] " RESET UNDERLINE_WHITE;
 		cout <<  _name << RED" destroyed !" << RESET << endl;

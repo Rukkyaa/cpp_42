@@ -6,11 +6,11 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/17 12:52:56 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/17 13:11:46 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main AMateria Character Ice Cure)
+SRCS	= $(addsuffix .cpp, main AMateria Character Ice Cure MateriaSource)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= animal
@@ -19,7 +19,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, AMateria ICharacter Character Ice Cure)
+HEADER  = $(addsuffix .hpp, AMateria ICharacter Character Ice Cure MateriaSource IMateriaSource)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)
