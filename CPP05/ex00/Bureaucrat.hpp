@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:39:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/10 17:55:05 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/10 22:18:49 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
 		Bureaucrat( void );
 		Bureaucrat( string name, int grade );
 		Bureaucrat( Bureaucrat const & src );
-		Bureaucrat &	operator=( Bureaucrat const & rhs );
+		Bureaucrat	&operator=( Bureaucrat const & rhs );
 		~Bureaucrat( void );
 
 		string	getName( void ) const;

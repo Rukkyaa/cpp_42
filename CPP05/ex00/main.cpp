@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:38:49 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/10 18:38:09 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/10 22:22:32 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,13 @@ int	main(void)
 {
 	#ifdef LOW_ERROR
 		lowError();
-	#endif
-	#ifdef HIGH_ERROR
+	#elif defined(HIGH_ERROR)
 		highError();
+	#else
+		Bureaucrat	chichi("Chirel", 140);
+		cout << chichi << endl;
+		chichi.decrementGrade(10);
+		cout << chichi << endl;
 	#endif
-
-	Bureaucrat	chichi("Chirel", 140);
-	cout << chichi << endl;
-	chichi.decrementGrade(10);
-	cout << chichi << endl;
 	return (0);
 }
