@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:44:16 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/10 22:18:22 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 05:53:46 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ int		Bureaucrat::getGrade( void ) const {
 	return (_grade);
 }
 
-void	Bureaucrat::incrementGrade( int nb ) {
+void	Bureaucrat::incrementGrade( void ) {
 	if (_grade - 1 < MAX_GRADE)
 		throw Bureaucrat::GradeTooHighException();
-	_grade -= nb;
+	_grade -= 1;
 }
 
-void	Bureaucrat::decrementGrade( int nb ) {
+void	Bureaucrat::decrementGrade( void ) {
 	if (_grade + 1 > MIN_GRADE)
 		throw Bureaucrat::GradeTooLowException();
-	_grade += nb;
+	_grade += 1;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

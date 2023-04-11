@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:39:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/10 22:18:49 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 05:53:29 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class Bureaucrat
 		string	getName( void ) const;
 		int		getGrade( void ) const;
 
-		void	incrementGrade( int nb );
-		void	decrementGrade( int nb );
+		void	incrementGrade( void );
+		void	decrementGrade( void );
 
 		class GradeTooHighException: public std::exception
 		{

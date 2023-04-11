@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:38:49 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/10 22:22:32 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 05:55:05 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	lowError(void)
 	{
 		cout << endl << looser << endl;
 		cout << YELLOW << "Trying to decrement his grade..." << RESET << endl;
-		looser.decrementGrade(1);
+		looser.decrementGrade();
 	}
 	catch (std::exception &e)
 	{
@@ -52,7 +52,7 @@ void	highError(void)
 	{
 		cout << endl << winner << endl;
 		cout << YELLOW << "Trying to increment his grade..." << RESET << endl;
-		winner.incrementGrade(1);
+		winner.incrementGrade();
 	}
 	catch (std::exception &e)
 	{
@@ -69,7 +69,7 @@ int	main(void)
 	#else
 		Bureaucrat	chichi("Chirel", 140);
 		cout << chichi << endl;
-		chichi.decrementGrade(10);
+		chichi.decrementGrade();
 		cout << chichi << endl;
 	#endif
 	return (0);
