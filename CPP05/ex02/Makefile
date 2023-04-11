@@ -6,11 +6,11 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/11 13:57:14 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/11 16:53:20 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main Bureaucrat Form ShrubberyCreationForm)
+SRCS	= $(addsuffix .cpp, main Bureaucrat Form ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= bureaucrat
@@ -19,7 +19,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, colors Bureaucrat Form ShrubberyCreationForm)
+HEADER  = $(addsuffix .hpp, colors Bureaucrat Form ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)

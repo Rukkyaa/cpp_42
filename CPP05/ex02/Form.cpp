@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 07:06:46 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 16:05:17 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:54:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,11 @@ int		Form::getGradeToExecute( void ) const {
 void	Form::beSigned( Bureaucrat const & bureaucrat ) {
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw Form::GradeTooLowException();
-	else
+	else {
 		_signed = true;
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
+		cout << RESET UNDERLINE_WHITE << _name << GREEN" signed by " << bureaucrat.getName() << RESET << endl;
+	}
 }
 
 const char	*Form::GradeTooHighException::what() const throw() {
@@ -96,6 +99,13 @@ const char	*Form::NotSignedException::what() const throw() {
 
 const char	*Form::FileException::what() const throw() {
 	return (BOLD_RED "[Form] " RED"Error while opening the file" RESET);
+}
+
+void	Form::execute( Bureaucrat const & executor ) const {
+	if (executor.getGrade() > _gradeToExecute)
+		throw Form::GradeTooLowException();
+	else if (!_signed)
+		throw Form::NotSignedException();
 }
 
 std::ostream	&operator<<( std::ostream & o, Form const & rhs ) {

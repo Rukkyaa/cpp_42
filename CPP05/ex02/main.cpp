@@ -6,14 +6,15 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:38:49 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 15:57:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:53:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
-
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 // void	lowError(void)
 // {
 // 	Bureaucrat	waluigi("Waluigi", 150);
@@ -75,9 +76,17 @@
 int	main(void)
 {
 	ShrubberyCreationForm	shrubbery = ShrubberyCreationForm("home");
+	RobotomyRequestForm		robotomy = RobotomyRequestForm("Bender");
+	PresidentialPardonForm	pardon = PresidentialPardonForm("Bender");
+	
+	srand(time(NULL));
 
 	shrubbery.beSigned(Bureaucrat("Bureaucrat", 1));
 	shrubbery.execute(Bureaucrat("Bureaucrat", 1));
+	robotomy.beSigned(Bureaucrat("Bureaucrat", 1));
+	robotomy.execute(Bureaucrat("Bureaucrat", 1));
+	pardon.beSigned(Bureaucrat("Bureaucrat", 1));
+	pardon.execute(Bureaucrat("Bureaucrat", 1));
 	// #ifdef LOW_ERROR
 	// 	lowError();
 	// #elif defined(HIGH_ERROR)
