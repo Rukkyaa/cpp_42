@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:44:16 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 08:00:14 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 08:04:50 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	Bureaucrat::signForm( Form & form ) {
 	try {
 		form.beSigned(*this);
 		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
-		cout << RESET UNDERLINE_WHITE << _name << GREEN" signs " << RESET UNDERLINE_WHITE << form.getName() << RESET << endl;
+		cout << RESET UNDERLINE_WHITE << _name << GREEN" signs " << UNDERLINE_WHITE << form.getName() << RESET << endl;
 	}
 	catch (std::exception & e) {
 		cout << BOLD_RED "[" << typeid(*this).name() + 2 << "] ";
-		cout << RESET UNDERLINE_WHITE << _name << RED" cannot sign " << RESET UNDERLINE_WHITE << form.getName() << RESET RED " because " << e.what() << RESET << endl;
+		cout << RESET UNDERLINE_WHITE << _name << RED" cannot sign " << UNDERLINE_WHITE << form.getName() << RESET RED " because " << e.what() << RESET << endl;
 	}
 }
 
@@ -96,7 +96,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream	&operator<<( std::ostream & o, Bureaucrat const & rhs ) {
-	o << BOLD_MAGENTA "[" << typeid(rhs).name() + 2 << "] " MAGENTA;
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << RESET;
+	o << BOLD_MAGENTA "[" << typeid(rhs).name() + 2 << "] ";
+	o << RESET UNDERLINE_WHITE << rhs.getName() << RESET MAGENTA ", bureaucrat grade " << rhs.getGrade() << RESET;
 	return (o);
 }
