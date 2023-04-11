@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:44:16 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 05:53:46 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 08:05:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream	&operator<<( std::ostream & o, Bureaucrat const & rhs ) {
-	o << BOLD_MAGENTA "[" << typeid(rhs).name() + 2 << "] " MAGENTA;
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << RESET;
+	o << BOLD_MAGENTA "[" << typeid(rhs).name() + 2 << "] ";
+	o << RESET UNDERLINE_WHITE << rhs.getName() << RESET MAGENTA ", bureaucrat grade " << rhs.getGrade() << RESET;
 	return (o);
 }
