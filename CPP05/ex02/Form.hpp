@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 06:56:59 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 16:05:30 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 17:19:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class	Form {
 		Form( string name, int gradeToSign, int gradeToExecute );
 		Form( Form const & src );
 		Form	&operator=( Form const & rhs );
-		~Form( void );
+		virtual ~Form( void );
 
 		string	getName( void ) const;
 		bool	getSigned( void ) const;
