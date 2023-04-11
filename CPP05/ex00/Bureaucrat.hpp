@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:39:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 05:53:29 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 06:20:40 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 using std::string;
 using std::cout;
+using std::cin;
+using std::exception;
 using std::endl;
 
 class Bureaucrat
@@ -43,13 +45,13 @@ class Bureaucrat
 		void	incrementGrade( void );
 		void	decrementGrade( void );
 
-		class GradeTooHighException: public std::exception
+		class GradeTooHighException: public exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
 
-		class GradeTooLowException: public std::exception
+		class GradeTooLowException: public exception
 		{
 			public:
 				virtual const char* what() const throw();

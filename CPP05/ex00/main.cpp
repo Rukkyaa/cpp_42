@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:38:49 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 05:55:05 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/11 06:52:29 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	lowError(void)
 		cout << YELLOW << "Trying to create bureaucrat with grade 151..." << RESET << endl;
 		Bureaucrat	big_looser("Big Looser", 151);
 	}
-	catch (std::exception &e)
+	catch (exception &e)
 	{
 		cout << e.what() << endl;
 	}
@@ -30,7 +30,7 @@ void	lowError(void)
 		cout << YELLOW << "Trying to decrement his grade..." << RESET << endl;
 		looser.decrementGrade();
 	}
-	catch (std::exception &e)
+	catch (exception &e)
 	{
 		cout << e.what() << endl;
 	}
@@ -44,7 +44,7 @@ void	highError(void)
 		cout << YELLOW << "Trying to create bureaucrat with grade 0..." << RESET << endl;
 		Bureaucrat	big_winner("Big Winner", 0);
 	}
-	catch (std::exception &e)
+	catch (exception &e)
 	{
 		cout << e.what() << endl;
 	}
@@ -54,10 +54,29 @@ void	highError(void)
 		cout << YELLOW << "Trying to increment his grade..." << RESET << endl;
 		winner.incrementGrade();
 	}
-	catch (std::exception &e)
+	catch (exception &e)
 	{
 		cout << e.what() << endl;
 	}
+}
+
+void	bureaucratDemo(void)
+{
+	cout << "\033[2J\033[1;1H";
+	cout << BOLD_WHITE"╔═══════════════════════════════════════════════════╗" << endl;
+    cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
+    cout << BOLD_WHITE"║          👨 SOME TESTS FOR BUREAUCRATS 👩         ║" << endl;
+    cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
+    cout << BOLD_WHITE"╚═══════════════════════════════════════════════════╝" << endl << endl;
+	cout << YELLOW << "Creating bureaucrat with name \"Mario\" and grade 42..." << RESET << endl;
+	Bureaucrat	mario("Mario", 42);
+	cout << mario << endl;
+	cout << YELLOW << "Trying to increment his grade..." << RESET << endl;
+	mario.incrementGrade();
+	cout << mario << endl;
+	cout << YELLOW << "Trying to decrement his grade..." << RESET << endl;
+	mario.decrementGrade();
+	cout << mario << endl;
 }
 
 int	main(void)
@@ -67,10 +86,7 @@ int	main(void)
 	#elif defined(HIGH_ERROR)
 		highError();
 	#else
-		Bureaucrat	chichi("Chirel", 140);
-		cout << chichi << endl;
-		chichi.decrementGrade();
-		cout << chichi << endl;
+		bureaucratDemo();
 	#endif
 	return (0);
 }
