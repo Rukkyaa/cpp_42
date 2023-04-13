@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:52:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 16:49:17 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:34:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm( void ) : Form("RobotomyRequestForm", 72, 45), _target("default") {
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" created by default" RESET << endl;
 	#endif
 }
@@ -22,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm( void ) : Form("RobotomyRequestForm", 7
 RobotomyRequestForm::RobotomyRequestForm(string target) : Form("RobotomyRequestForm", 72, 45) {
 	_target = target;
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" created" RESET << endl;
 	#endif
 }
@@ -30,7 +30,7 @@ RobotomyRequestForm::RobotomyRequestForm(string target) : Form("RobotomyRequestF
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &rhs ) : Form(rhs) {
 	_target = rhs._target;
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" created by copy" RESET << endl;
 	#endif
 }
@@ -40,7 +40,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=( RobotomyRequestForm const &
 		_target = rhs._target;
 	}
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" acreated by assignation" RESET << endl;
 	#endif
 	return *this;
@@ -48,7 +48,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=( RobotomyRequestForm const &
 
 RobotomyRequestForm::~RobotomyRequestForm( void ) {
 	#ifdef DEBUG
-		cout << BOLD_RED "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_RED "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << RED" destroyed" RESET << endl;
 	#endif
 }

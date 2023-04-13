@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:38:49 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 17:20:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 12:01:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,39 +54,92 @@
 // 	}
 // }
 
-// void	bureaucratDemo(void)
-// {
-// 	cout << "\033[2J\033[1;1H";
-// 	cout << BOLD_WHITE"╔═══════════════════════════════════════════════════╗" << endl;
-//     cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
-//     cout << BOLD_WHITE"║             📝 SOME TESTS FOR FORMS 📝            ║" << endl;
-//     cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
-//     cout << BOLD_WHITE"╚═══════════════════════════════════════════════════╝" << endl << endl;
-// 	cout << YELLOW << "Creating bureaucrat with name \"Luigi\" and grade 42..." << RESET << endl;
-// 	Bureaucrat	luigi("Luigi", 42);
-// 	cout << luigi << endl << endl;
-// 	cout << YELLOW << "Creating form \"Mariage de peach\" with 50 as grade to sign and 1 as grade to execute..." << RESET << endl;
-// 	Form		mariage("Mariage de peach", 50, 1);
-// 	cout << mariage << endl;
-// 	cout << YELLOW << "Luigi tries to sign the form..." << RESET << endl;
-// 	luigi.signForm(mariage);
-// 	cout << mariage << endl;
-// }
+void	shrubberyHeader(void) {
+	cout << "\033[2J\033[1;1H";
+	cout << BOLD_WHITE"╔═══════════════════════════════════════════════════╗" << endl;
+    cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
+    cout << BOLD_WHITE"║          🌳 SOME TESTS FOR SHRUBBERY 🌳           ║" << endl;
+    cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
+    cout << BOLD_WHITE"╚═══════════════════════════════════════════════════╝" << endl << endl;
+}
+
+void	robotomyHeader(void) {
+	cout << "\033[2J\033[1;1H";
+	cout << BOLD_WHITE"╔═══════════════════════════════════════════════════╗" << endl;
+    cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
+    cout << BOLD_WHITE"║           🤖 SOME TESTS FOR ROBOTOMY 🤖           ║" << endl;
+    cout << BOLD_WHITE"╠═══════════════════════════════════════════════════╣" << endl;
+    cout << BOLD_WHITE"╚═══════════════════════════════════════════════════╝" << endl << endl;
+}
+
+void	shrubberyDemo(void) {
+	shrubberyHeader();
+	cout << YELLOW << "Creating bureaucrat with name \"Bowser\" and grade 1..." << RESET << endl;
+	Bureaucrat	*Bowser = new Bureaucrat("Bowser", 1);
+	cout << YELLOW << "Creating a ShrubberyCreationForm with \"forest\" as destination" << RESET << endl;
+	ShrubberyCreationForm	*shrubbery = new ShrubberyCreationForm("forest");
+	cout << YELLOW << "Let's see if the form is ok..." << RESET << endl << endl;
+	cout << *Bowser << endl << endl << *shrubbery << endl;
+
+	cout << GREEN << "Press enter to continue..." << RESET << endl;
+	cin.get();
+	shrubberyHeader();
+
+	// No signed form
+	cout << YELLOW << "Trying to execute \"ShrubberyCreationForm\" without signing it..." << RESET << endl;
+	try {
+		Bowser->executeForm(*shrubbery);
+	} catch (exception &e) {
+		cout << e.what() << endl;
+	}
+	cin.get();
+
+	// No permission to sign
+	cout << YELLOW << "Trying to sign \"ShrubberyCreationForm\" with a bureaucrat of grade 150..." << RESET << endl;
+	try {
+		Bureaucrat	waluigi = Bureaucrat("Waluigi", 150);
+		waluigi.signForm(*shrubbery);
+	} catch (exception &e) {
+		cout << e.what() << endl;
+	}
+	cin.get();
+
+	// Sign form
+	cout << YELLOW << "Bowser tries to sign \"ShrubberyCreationForm\"..." << RESET << endl;
+	try {
+		Bowser->signForm(*shrubbery);
+	} catch (exception &e) {
+		cout << e.what() << endl;
+	}
+	cin.get();
+
+	cout << YELLOW << "Let's see if it worked..." << RESET << endl;
+	cout << *shrubbery;
+	cin.get();
+
+	cout << YELLOW << "Trying to execute \"ShrubberyCreationForm\" with a bureaucrat of grade 150..." << RESET << endl;
+	try {
+		Bureaucrat	waluigi = Bureaucrat("Waluigi", 150);
+		waluigi.executeForm(*shrubbery);
+	} catch (exception &e) {
+		cout << e.what() << endl;
+	}
+	cin.get();
+	
+	cout << YELLOW << "Bowser tries to execute \"ShrubberyCreationForm\"..." << RESET << endl;
+	try {
+		Bowser->executeForm(*shrubbery);
+	} catch (exception &e) {
+		cout << e.what() << endl;
+	}
+	cout << endl << YELLOW << "To see the result, open \"forest_shrubbery\" file" << endl << RESET;
+	delete Bowser;
+	delete shrubbery;
+}
 
 int	main(void)
 {
-	ShrubberyCreationForm	shrubbery = ShrubberyCreationForm("home");
-	RobotomyRequestForm		robotomy = RobotomyRequestForm("Bender");
-	PresidentialPardonForm	pardon = PresidentialPardonForm("Bender");
-	
-	srand(time(NULL));
-
-	shrubbery.beSigned(Bureaucrat("Bureaucrat", 1));
-	shrubbery.execute(Bureaucrat("Bureaucrat", 1));
-	robotomy.beSigned(Bureaucrat("Bureaucrat", 1));
-	robotomy.execute(Bureaucrat("Bureaucrat", 1));
-	pardon.beSigned(Bureaucrat("Bureaucrat", 1));
-	pardon.execute(Bureaucrat("Bureaucrat", 1));
+	shrubberyDemo();
 	// #ifdef LOW_ERROR
 	// 	lowError();
 	// #elif defined(HIGH_ERROR)

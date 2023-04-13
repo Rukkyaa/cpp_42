@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 07:06:46 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 16:54:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:35:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,15 @@ const char	*Form::FileException::what() const throw() {
 
 void	Form::execute( Bureaucrat const & executor ) const {
 	if (executor.getGrade() > _gradeToExecute)
+	{
 		throw Form::GradeTooLowException();
+	}
 	else if (!_signed)
 		throw Form::NotSignedException();
 }
 
 std::ostream	&operator<<( std::ostream & o, Form const & rhs ) {
-	o << BOLD_GREEN "[" << typeid(rhs).name() + 1 << "] ";
+	o << BOLD_GREEN "[" << typeid(rhs).name() + 2 << "] ";
 	o << RESET UNDERLINE_WHITE << rhs.getName() << GREEN" form" RESET << endl;
 	o << BOLD_GREEN "Grade to sign: " << RESET << rhs.getGradeToSign() << endl;
 	o << BOLD_GREEN "Grade to execute: " << RESET << rhs.getGradeToExecute() << endl;

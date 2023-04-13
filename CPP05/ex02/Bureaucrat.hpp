@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:39:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 07:36:24 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/13 11:25:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ class Bureaucrat
 
 		void	incrementGrade( void );
 		void	decrementGrade( void );
-		void	signForm( Form & form );
+		void	signForm( Form &form );
+		void	executeForm( Form &form );
 
 		class GradeTooHighException: public exception
 		{
