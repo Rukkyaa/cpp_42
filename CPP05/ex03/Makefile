@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/11 17:11:04 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/13 14:13:14 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ flag:=1
 		@if [ $(flag) = "1" ]; then\
 			clear ;\
 			printf "\033[1;35m╔══════════════════════════════════════╗\n";\
-			printf "║          CPP05 EX02 LOADING...       ║\n";\
+			printf "║          CPP05 EX03 LOADING...       ║\n";\
 			printf "╠══════════════════════════════════════╣\n";\
 			printf "║                                      ║\n";\
 			printf "║                                      ║\n\033[A\033[A";\
@@ -50,7 +50,7 @@ all: $(NAME)
 
 help:
 	@printf "\033[1;36m╔═══════════════════════════════════════════════════╗\n"
-	@printf "║                  CPP05 EX02 HELP                  ║\n"
+	@printf "║                  CPP05 EX03 HELP                  ║\n"
 	@printf "╠═══════════════════════════════════════════════════╣\n"
 	@printf "║                      OPTIONS                      ║\n"
 	@printf "╠═══════════════════════════════════════════════════╣\n"
@@ -60,13 +60,6 @@ help:
 	@printf "║ %-50s║\n" "make fclean : remove .o and binary"
 	@printf "║ %-50s║\n" "make re : fclean + all"
 	@printf "║ %-50s║\n" "make help : show this help"
-	@printf "║                                                   ║\n"
-	@printf "╠═══════════════════════════════════════════════════╣\n"
-	@printf "║                       TESTS                       ║\n"
-	@printf "╠═══════════════════════════════════════════════════╣\n"
-	@printf "║                                                   ║\n"
-	@printf "║ %-50s║\n" "make low_error test GradeTooLowException"
-	@printf "║ %-50s║\n" "make high_error test GradeTooHighExcepton"
 	@printf "║                                                   ║\n"
 	@printf "╚═══════════════════════════════════════════════════╝\n\033[m"
 

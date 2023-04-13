@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:52:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 16:53:14 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:34:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm( void ) : Form("PresidentialPardonForm", 25, 5), _target("default") {
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" created by default" RESET << endl;
 	#endif
 }
@@ -22,7 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm( void ) : Form("PresidentialPardo
 PresidentialPardonForm::PresidentialPardonForm(string target) : Form("PresidentialPardonForm", 25, 5) {
 	_target = target;
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" created" RESET << endl;
 	#endif
 }
@@ -30,7 +30,7 @@ PresidentialPardonForm::PresidentialPardonForm(string target) : Form("Presidenti
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &rhs ) : Form(rhs) {
 	_target = rhs._target;
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" created by copy" RESET << endl;
 	#endif
 }
@@ -40,7 +40,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonFor
 		_target = rhs._target;
 	}
 	#ifdef DEBUG
-		cout << BOLD_GREEN "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" acreated by assignation" RESET << endl;
 	#endif
 	return *this;
@@ -48,7 +48,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonFor
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {
 	#ifdef DEBUG
-		cout << BOLD_RED "[" << typeid(*this).name() + 1 << "] ";
+		cout << BOLD_RED "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << RED" destroyed" RESET << endl;
 	#endif
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:44:16 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 08:04:50 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:00:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	Bureaucrat::decrementGrade( void ) {
 	_grade += 1;
 }
 
-void	Bureaucrat::signForm( Form & form ) {
+void	Bureaucrat::signForm( Form &form ) {
 	try {
 		form.beSigned(*this);
 		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
@@ -86,6 +86,19 @@ void	Bureaucrat::signForm( Form & form ) {
 		cout << RESET UNDERLINE_WHITE << _name << RED" cannot sign " << UNDERLINE_WHITE << form.getName() << RESET RED " because " << e.what() << RESET << endl;
 	}
 }
+
+void	Bureaucrat::executeForm( Form &form ) {
+	try {
+		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
+		cout << RESET UNDERLINE_WHITE << _name << GREEN" execute " << UNDERLINE_WHITE << form.getName() << RESET << endl;
+		form.execute(*this);
+	}
+	catch (std::exception & e) {
+		cout << BOLD_RED "[" << typeid(*this).name() + 2 << "] ";
+		cout << RESET UNDERLINE_WHITE << _name << RED" cannot execute " << UNDERLINE_WHITE << form.getName() << RESET RED " because " << e.what() << RESET << endl;
+	}
+}
+
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return (BOLD_RED "[ERROR] " RED "Bureaucrat's grade is too high" RESET);
