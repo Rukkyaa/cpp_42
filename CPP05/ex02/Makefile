@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 17:38:06 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/11 16:53:20 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/13 13:55:12 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,8 +65,9 @@ help:
 	@printf "║                       TESTS                       ║\n"
 	@printf "╠═══════════════════════════════════════════════════╣\n"
 	@printf "║                                                   ║\n"
-	@printf "║ %-50s║\n" "make low_error test GradeTooLowException"
-	@printf "║ %-50s║\n" "make high_error test GradeTooHighExcepton"
+	@printf "║ %-50s║\n" "make shrubbery test ShrubberyCreationForm"
+	@printf "║ %-50s║\n" "make robotomy test RobotomyRequestForm"
+	@printf "║ %-50s║\n" "make presidential test PresidentialPardonForm"
 	@printf "║                                                   ║\n"
 	@printf "╚═══════════════════════════════════════════════════╝\n\033[m"
 
@@ -75,13 +76,19 @@ debug: re
 		@printf "\n"
 		@./$(NAME)
 
-low_error: CFLAGS += -D LOW_ERROR
-low_error: re
+shrubbery: CFLAGS += -D SHRUBBERY
+shrubbery: re
+		@printf "\n"
+		@./$(NAME)
+		@cat forest_shrubbery
+
+robotomy: CFLAGS += -D ROBOTOMY
+robotomy: re
 		@printf "\n"
 		@./$(NAME)
 
-high_error: CFLAGS += -D HIGH_ERROR
-high_error: re
+presidential: CFLAGS += -D PRESIDENTIAL
+presidential: re
 		@printf "\n"
 		@./$(NAME)
 

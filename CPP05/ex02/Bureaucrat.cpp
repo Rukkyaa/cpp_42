@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:44:16 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 11:28:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:00:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void	Bureaucrat::signForm( Form &form ) {
 
 void	Bureaucrat::executeForm( Form &form ) {
 	try {
-		form.execute(*this);
 		cout << BOLD_GREEN "[" << typeid(*this).name() + 2 << "] ";
 		cout << RESET UNDERLINE_WHITE << _name << GREEN" execute " << UNDERLINE_WHITE << form.getName() << RESET << endl;
+		form.execute(*this);
 	}
 	catch (std::exception & e) {
 		cout << BOLD_RED "[" << typeid(*this).name() + 2 << "] ";
