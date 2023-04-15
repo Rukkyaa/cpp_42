@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:52:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 11:34:40 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/15 22:19:54 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 	Form::execute(executor);
-	
+	srand(time(NULL));
 	cout << BOLD_BLUE << "* drilling noises *" << RESET << endl;
-	if (rand() % 100 < 50)
+	if (rand() % 2)
 		cout << BOLD_GREEN << _target << " has been robotomized successfully" << RESET << endl;
 	else
 		cout << BOLD_RED << _target << " robotomization failed" << RESET << endl;
