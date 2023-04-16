@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 10:02:11 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 10:09:49 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ using	std::endl;
 using	std::string;
 using	std::isprint;
 
-void	convert		( string const &str );
-bool	isChar		( string const &str );
-bool	isInt		( string const &str );
-bool	isFloat		( string const &str );
-bool	isDouble	( string const &str );
+void			convert		( string const &str );
+bool			isChar		( string const &str );
+bool			isInt		( string const &str );
+bool			isFloat		( string const &str );
+bool			isDouble	( string const &str );
+unsigned short	getType		( string const &str );
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:59:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 10:05:53 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 10:13:29 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,37 @@ void	convert( string const &str ) {
 	// int		iValue = 0;
 	// float	fValue = 0;
 	// double	dValue = 0;
+	unsigned short	type = getType(str);
 
-	if (isChar(str))
-		cout << "Char" << endl;
-	else if (isInt(str))
-		cout << "Int" << endl;
-	else if (isDouble(str))
-		cout << "Double" << endl;
-	else if (isFloat(str))
-		cout << "Float" << endl;
-	else
-		cout << "Error" << endl;
+	switch (type)
+	{
+	case CHAR:
+		cout << "The type is char";
+		break;
+	case INT:
+		cout << "The type is int";
+		break;
+	case DOUBLE:
+		cout << "The type is double";
+		break;
+	case FLOAT:
+		cout << "The type is float";
+		break;
+	default:
+		cout << "The type is unknown";
+		break;
+	}
+	cout << endl;
 }
 
-unsigned int	getType( string const &str ) {
-	bool	(*checkFunction[4])( string const & ) = {isChar, isInt, isFloat, isDouble};
-	
+unsigned short	getType( string const &str ) {
+	bool			(*checkFunction[4])( string const & ) = {isChar, isInt, isDouble, isFloat};
+	unsigned short	res[4] = {CHAR, INT, DOUBLE, FLOAT};
+
+	for (unsigned short i = 0; i < 4; ++i)
+		if (checkFunction[i](str))
+			return (res[i]);
+	return (4);
 }
 
 bool	isChar( string const &str ) {
