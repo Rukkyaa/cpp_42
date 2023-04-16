@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 12:38:05 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 15:34:39 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <cstdlib>
 # include <cfloat>
+# include <climits>
 
 # include "colors.hpp"
 
@@ -39,6 +40,9 @@ using	std::isprint;
 
 void			convert			( string const &str );
 void			convertFromChar	( string const &str );
+void			convertFromInt	( string const &str );
+void			convertFromFloat( string const &str );
+void			convertFromDouble( string const &str );
 
 bool			isChar			( string const &str );
 bool			isInt			( string const &str );

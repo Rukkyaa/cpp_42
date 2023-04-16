@@ -6,62 +6,157 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:59:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 12:40:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 15:37:45 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
 
 void	convert( string const &str ) {
-	char			cValue = 0;
-	int				iValue = 0;
-	float			fValue = 0.0f;
-	double			dValue = 0.0;
 	unsigned short	type = getType(str);
 
 	switch (type)
 	{
 		case CHAR:
-			cValue = str[0];
-			iValue = static_cast<int>(cValue);
-			fValue = static_cast<float>(iValue);
-			dValue = static_cast<double>(iValue);
+			convertFromChar(str);
 			break;
 		case INT:
-			iValue = std::atoi(str.c_str());
-			cValue = static_cast<char>(iValue);
-			fValue = static_cast<float>(iValue);
-			dValue = static_cast<double>(iValue);
-			break;
-		case DOUBLE:
-			dValue = std::stod(str);
-			iValue = std::atoi(str.c_str());
-			cValue = static_cast<char>(iValue);
-			fValue = static_cast<float>(iValue);
+			convertFromInt(str);
 			break;
 		case FLOAT:
-			cout << "The type is float";
+			convertFromFloat(str);
+			break;
+		case DOUBLE:
+			convertFromDouble(str);
 			break;
 		default:
 			cout << "The type is unknown";
 			break;
 	}
-	cout << "Char: " << cValue << endl;
-	cout << "Int: " << iValue << endl;
-	cout << "Float: " << fValue << endl;
-	cout << "Double: " << dValue << endl;
 }
 
 void	convertFromChar( string const &str ) {
-	(void)str;
-	// char			cValue = 0;
-	// int				iValue = 0;
-	// float			fValue = 0;
-	// double			dValue = 0;
+	char	cValue = str[0];
+	int		iValue = static_cast<int>(cValue);
+	float	fValue = static_cast<float>(iValue);
+	double	dValue = static_cast<double>(iValue);
 
-	// cValue = str[0];
-	// iValue = static_cast<int>(cValue);
-	// fValue = static_cast<float>(iValue);
-	// dValue = static_cast<double>(iValue);
-	// printChar(cValue);
+	if (isprint(cValue))
+		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
+	else
+		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
+	cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
+	cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
+	cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
+}
+
+void	convertFromInt( string const &str ) {
+	char	*endptr = NULL;
+	long	iValue = std::strtol(str.c_str(), &endptr, 10);
+	char	cValue = 0;
+	float	fValue = 0.0f;
+	double	dValue = 0.0;
+
+	try
+	{
+		if (endptr == str.c_str() || *endptr != '\0')
+			throw std::invalid_argument("The string is not a number");
+		if (iValue > INT_MAX || iValue < INT_MIN)
+			throw std::out_of_range("The number is out of range");
+	}
+	catch (std::exception &e)
+	{
+		cout << BOLD_RED "[ERROR] " RESET RED << e.what() << endl;
+		exit(EXIT_FAILURE);
+	}
+	cValue = static_cast<char>(iValue);
+	fValue = static_cast<float>(iValue);
+	dValue = static_cast<double>(iValue);
+	if (isprint(cValue))
+		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
+	else
+		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
+	cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
+	cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
+	cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
+}
+
+void	convertFromFloat( string const &str ) {
+	char	*endptr = NULL;
+	float	fValue = std::strtof(str.c_str(), &endptr);
+	char	cValue = 0;
+	int		iValue = 0;
+	double	dValue = 0.0;
+
+	try
+	{
+		if (endptr == str.c_str() || (*endptr != 'f' && *endptr != 'F'))
+			throw std::invalid_argument("The string is not a number");
+		if (fValue > FLT_MAX || fValue < -FLT_MAX)
+			throw std::out_of_range("The number is out of range");
+	}
+	catch (std::exception &e)
+	{
+		cout << BOLD_RED "[ERROR] " RESET RED << e.what() << endl;
+		exit(EXIT_FAILURE);
+	}
+	cValue = static_cast<char>(fValue);
+	iValue = static_cast<int>(fValue);
+	dValue = static_cast<double>(fValue);
+	if (isprint(cValue))
+		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
+	else
+		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
+	if (fValue > INT_MAX || fValue < INT_MIN)
+		cout << "int: " << BOLD_RED << "Impossible" << RESET << endl;
+	else
+		cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
+	if (fValue == static_cast<float>(iValue))
+		cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
+	else
+		cout << "float: " << BOLD_GREEN << fValue << "f" <<RESET << endl;
+	if (dValue == static_cast<double>(iValue))
+		cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
+	else
+		cout << "double: " << BOLD_GREEN << dValue << RESET << endl;
+}
+
+void	convertFromDouble( string const &str ) {
+	char	*endptr = NULL;
+	double	dValue = std::strtod(str.c_str(), &endptr);
+	char	cValue = 0;
+	int		iValue = 0;
+	float	fValue = 0.0f;
+
+	try
+	{
+		if (endptr == str.c_str() || *endptr != '\0')
+			throw std::invalid_argument("The string is not a number");
+		if (dValue > DBL_MAX || dValue < -DBL_MAX)
+			throw std::out_of_range("The number is out of range");
+	}
+	catch (std::exception &e)
+	{
+		cout << BOLD_RED "[ERROR] " RESET RED << e.what() << endl;
+		exit(EXIT_FAILURE);
+	}
+	cValue = static_cast<char>(dValue);
+	iValue = static_cast<int>(dValue);
+	fValue = static_cast<float>(dValue);
+	if (isprint(cValue))
+		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
+	else
+		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
+	if (dValue > INT_MAX || dValue < INT_MIN)
+		cout << "int: " << BOLD_RED << "Impossible" << RESET << endl;
+	else
+		cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
+	if (fValue == static_cast<float>(iValue))
+		cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
+	else
+		cout << "float: " << BOLD_GREEN << fValue << "f" <<RESET << endl;
+	if (dValue == static_cast<double>(iValue))
+		cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
+	else
+		cout << "double: " << BOLD_GREEN << dValue << RESET << endl;
 }
