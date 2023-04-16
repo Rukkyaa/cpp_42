@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:59:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 16:28:25 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 18:14:02 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void	convert( string const &str ) {
 			break;
 		case DOUBLE:
 			convertFromDouble(str);
+			break;
+		case NAN_OR_INF:
+			convertFromNanOrInf(str);
 			break;
 		default:
 			cout << "The type is unknown";
@@ -117,4 +120,24 @@ void	convertFromDouble( string const &str ) {
 	iValue = static_cast<int>(dValue);
 	fValue = static_cast<float>(dValue);
 	printAll(cValue, iValue, fValue, dValue, str);
+}
+
+void	convertFromNanOrInf( string const &str ) {
+	cout << CYAN << "╔════════════════════╗" << endl;
+	cout << R_WALL << BLUE << "  char: " << BOLD_RED << "Impossible" << L_WALL << endl;
+	cout << R_WALL << BLUE << "   int: " << BOLD_RED << "Impossible" << L_WALL << endl;
+	if (str == "nan" || str == "nanf") {
+		cout << R_WALL << BLUE << " float: " << BOLD_GREEN << "nanf      " << L_WALL << endl;
+		cout << R_WALL << BLUE << "double: " << BOLD_GREEN << "nan       " << L_WALL << endl;
+	} else if (str == "-nan" || str == "-nanf") {
+		cout << R_WALL << BLUE << " float: " << BOLD_GREEN << "-nanf     " << L_WALL << endl;
+		cout << R_WALL << BLUE << "double: " << BOLD_GREEN << "-nan      " << L_WALL << endl;
+	} else if (str == "inf" || str == "inff") {
+		cout << R_WALL << BLUE << " float: " << BOLD_GREEN << "inff      " << L_WALL << endl;
+		cout << R_WALL << BLUE << "double: " << BOLD_GREEN << "inf       " << L_WALL << endl;
+	} else if (str == "-inf" || str == "-inff") {
+		cout << R_WALL << BLUE << " float: " << BOLD_GREEN << "-inff     " << L_WALL << endl;
+		cout << R_WALL << BLUE << "double: " << BOLD_GREEN << "-inf      " << L_WALL << endl;
+	}
+	cout << CYAN << "╚════════════════════╝" << RESET << endl;
 }

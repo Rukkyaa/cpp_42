@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:22 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 14:49:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:56:51 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main(int argc, char **argv)
 		cout << "Usage: ./convert [string]" RESET << endl;
 		return (EXIT_FAILURE);
 	}
-	// cout << "test: " << static_cast<char>(203240.424f);
 	convert(argv[1]);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 11:36:00 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 12:30:41 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:56:48 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /**
 *** @brief Détermine le type d'une chaîne de caractères.
 *** @param str La chaîne de caractères à évaluer.
-*** @return unsigned short Le type détecté : CHAR, INT, DOUBLE ou FLOAT, ou ERROR si le type n'a pas été détecté.
+*** @return unsigned short Le type détecté : CHAR, INT, DOUBLE, FLOAT, NAN, INF, ou ERROR si le type n'a pas été détecté.
 **/
 unsigned short	getType( string const &str ) {
-	bool			(*checkFunction[4])( string const & ) = {isInt, isChar, isDouble, isFloat};
-	unsigned short	res[4] = {INT, CHAR, DOUBLE, FLOAT};
+	bool			(*checkFunction[5])( string const & ) = {isInt, isChar, isDouble, isFloat, isNanOrInf};
+	unsigned short	res[5] = {INT, CHAR, DOUBLE, FLOAT, NAN_OR_INF};
 
-	for (unsigned short i = 0; i < 4; ++i)
+	for (unsigned short i = 0; i < 5; ++i)
 		if (checkFunction[i](str))
 			return (res[i]);
 	return (ERROR);
@@ -87,4 +87,31 @@ bool	isDouble( string const &str ) {
         }
     }
     return	(decimalFound);
+}
+
+/**
+*** @brief Vérifie si une chaîne de caractères contient une valeur NaN
+*** @param str La chaîne de caractères à vérifier.
+*** @return true si la chaîne représente un NaN, false sinon.
+**/
+bool	isNan( string const &str ) {
+	return (str == "nan" || str == "nanf" || str == "+nan" || str == "+nanf" || str == "-nan" || str == "-nanf");
+}
+
+/**
+*** @brief Vérifie si une chaîne de caractères contient une valeur infinie
+*** @param str La chaîne de caractères à vérifier.
+*** @return true si la chaîne représente une valeur infinie, false sinon.
+**/
+bool	isInf( string const &str ) {
+	return (str == "inf" || str == "inff" || str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff");
+}
+
+/**
+*** @brief Vérifie si une chaîne de caractères contient une valeur infinie ou NaN
+*** @param str La chaîne de caractères à vérifier.
+*** @return true si la chaîne représente une valeur infinie ou NaN, false sinon.
+**/
+bool	isNanOrInf( string const &str ) {
+	return (isNan(str) || isInf(str));
 }
