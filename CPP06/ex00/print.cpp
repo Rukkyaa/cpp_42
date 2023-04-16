@@ -6,13 +6,13 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:21:36 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 18:14:39 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 18:29:16 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
 
-size_t	getMaxLen( string const &str, char c, int i, float f ) {
+size_t	getMaxLen( string const &str, char c, int i, double f ) {
 	size_t	maxLen = (str.length() > 3) ? str.length() : str.length() + 3;
 	size_t	fLen = 0;
 
@@ -53,7 +53,7 @@ void	printLowLine( size_t maxLen ) {
 }
 
 void	printAll( char c, int i, float f, double d, string const &str ) {
-	size_t	maxLen = getMaxLen(str, c, i, f);
+	size_t	maxLen = getMaxLen(str, c, i, d);
 	
 	printHighLine(maxLen);
 	cout << R_WALL << BLUE << std::setw(8) << "char: ";
