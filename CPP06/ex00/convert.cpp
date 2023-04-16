@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:59:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 15:37:45 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 16:28:25 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,7 @@ void	convertFromChar( string const &str ) {
 	float	fValue = static_cast<float>(iValue);
 	double	dValue = static_cast<double>(iValue);
 
-	if (isprint(cValue))
-		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
-	else
-		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
-	cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
-	cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
-	cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
+	printAll(cValue, iValue, fValue, dValue, str);
 }
 
 void	convertFromInt( string const &str ) {
@@ -72,13 +66,7 @@ void	convertFromInt( string const &str ) {
 	cValue = static_cast<char>(iValue);
 	fValue = static_cast<float>(iValue);
 	dValue = static_cast<double>(iValue);
-	if (isprint(cValue))
-		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
-	else
-		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
-	cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
-	cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
-	cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
+	printAll(cValue, iValue, fValue, dValue, str);
 }
 
 void	convertFromFloat( string const &str ) {
@@ -103,22 +91,7 @@ void	convertFromFloat( string const &str ) {
 	cValue = static_cast<char>(fValue);
 	iValue = static_cast<int>(fValue);
 	dValue = static_cast<double>(fValue);
-	if (isprint(cValue))
-		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
-	else
-		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
-	if (fValue > INT_MAX || fValue < INT_MIN)
-		cout << "int: " << BOLD_RED << "Impossible" << RESET << endl;
-	else
-		cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
-	if (fValue == static_cast<float>(iValue))
-		cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
-	else
-		cout << "float: " << BOLD_GREEN << fValue << "f" <<RESET << endl;
-	if (dValue == static_cast<double>(iValue))
-		cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
-	else
-		cout << "double: " << BOLD_GREEN << dValue << RESET << endl;
+	printAll(cValue, iValue, fValue, dValue, str);
 }
 
 void	convertFromDouble( string const &str ) {
@@ -143,20 +116,5 @@ void	convertFromDouble( string const &str ) {
 	cValue = static_cast<char>(dValue);
 	iValue = static_cast<int>(dValue);
 	fValue = static_cast<float>(dValue);
-	if (isprint(cValue))
-		cout << "char: " << BOLD_GREEN << cValue << RESET << endl;
-	else
-		cout << "char: " << BOLD_RED << "Non displayable" << RESET << endl;
-	if (dValue > INT_MAX || dValue < INT_MIN)
-		cout << "int: " << BOLD_RED << "Impossible" << RESET << endl;
-	else
-		cout << "int: " << BOLD_GREEN << iValue << RESET << endl;
-	if (fValue == static_cast<float>(iValue))
-		cout << "float: " << BOLD_GREEN << fValue << ".0f" <<RESET << endl;
-	else
-		cout << "float: " << BOLD_GREEN << fValue << "f" <<RESET << endl;
-	if (dValue == static_cast<double>(iValue))
-		cout << "double: " << BOLD_GREEN << dValue << ".0" << RESET << endl;
-	else
-		cout << "double: " << BOLD_GREEN << dValue << RESET << endl;
+	printAll(cValue, iValue, fValue, dValue, str);
 }

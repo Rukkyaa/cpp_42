@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 15:34:39 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:05:17 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <cstdlib>
 # include <cfloat>
 # include <climits>
-
+# include <iomanip>
+# include <sstream>
 # include "colors.hpp"
 
 # define CHAR 0
@@ -33,10 +34,16 @@
 # define NINE_CHAR 57
 # define NULL_CHAR 0
 
+# define R_WALL CYAN"║ " RESET
+# define L_WALL CYAN" ║" RESET
+
 using	std::cout;
 using	std::endl;
 using	std::string;
 using	std::isprint;
+using	std::setw;
+using	std::left;
+using	std::right;
 
 void			convert			( string const &str );
 void			convertFromChar	( string const &str );
@@ -50,6 +57,6 @@ bool			isFloat			( string const &str );
 bool			isDouble		( string const &str );
 unsigned short	getType			( string const &str );
 
-void			printChar		( int c );
+void			printAll		( char c, int i, float f, double d, string const &str );
 
 #endif
