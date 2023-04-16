@@ -6,11 +6,11 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by axlamber          #+#    #+#              #
-#    Updated: 2023/04/15 22:39:29 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/04/16 12:36:05 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main convert)
+SRCS	= $(addsuffix .cpp, main convert getType print)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= convert

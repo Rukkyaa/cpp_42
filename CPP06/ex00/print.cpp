@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   print.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 22:38:22 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 11:54:27 by rukkyaa          ###   ########.fr       */
+/*   Created: 2023/04/16 11:42:11 by rukkyaa           #+#    #+#             */
+/*   Updated: 2023/04/16 12:23:03 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
 
+void	printChar( int c ) {
+	cout << "Char: ";
 
-
-int main(int argc, char **argv)
-{
-	(void)argv;
-	if (argc != 2)
-	{
-		cout << BOLD_RED "[ERROR] " RESET RED "Invalid number of arguments" << endl;
-		cout << "Usage: ./convert [string]" RESET << endl;
-		return (EXIT_FAILURE);
-	}
-	// cout << "test: " << static_cast<char>(203240.424f);
-	convert(argv[1]);
-	return (EXIT_SUCCESS);
+	if (c < NULL_CHAR || c > DEL_CHAR)
+		cout << "Impossible";
+	else if (c < SPACE_CHAR || c >= DEL_CHAR || (c >= ZERO_CHAR && c <= NINE_CHAR))
+		cout << "Non displayable";
+	else
+		cout << char(c);
+		
+	cout << endl;
 }
+
+// void	printInt( int nb ) {
+// 	cout << "Int: ";
+
+// 	if ()
+// }
