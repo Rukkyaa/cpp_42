@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 10:09:49 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 10:24:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define INT 1
 # define FLOAT 2
 # define DOUBLE 3
+# define ERROR 4
 
 using	std::cout;
 using	std::endl;
