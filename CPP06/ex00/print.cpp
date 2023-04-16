@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:21:36 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 17:20:14 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:48:24 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	getMaxLen( string const &str, char c, int i, float f ) {
 
 	std::stringstream ss;
 	ss << f;
-	fLen = ss.str().length();
+	fLen = ss.str().length();		
 	if (f == static_cast<float>(i))
 		fLen += 3;
 	else
@@ -31,6 +31,10 @@ size_t	getMaxLen( string const &str, char c, int i, float f ) {
 		maxLen = (maxLen > 10) ? maxLen : 10;
 	if (fLen > maxLen)
 		maxLen = fLen;
+	if (fLen == 14)
+		maxLen = 14;
+	else if (fLen == 12)
+		maxLen = 12;
 	return (maxLen);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 17:05:17 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:39:47 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,10 @@ bool			isDouble		( string const &str );
 unsigned short	getType			( string const &str );
 
 void			printAll		( char c, int i, float f, double d, string const &str );
+void			printChar		( char c, int i, size_t maxLen );
+void			printInt		( float f, int i, size_t maxLen );
+void			printFloat		( float f, int i, size_t maxLen );
+void			printDouble		( double d, int i, size_t maxLen );
+
 
 #endif
