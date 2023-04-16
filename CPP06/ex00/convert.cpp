@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:59:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 18:14:02 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/16 18:17:43 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	convert( string const &str ) {
 			convertFromNanOrInf(str);
 			break;
 		default:
-			cout << "The type is unknown";
+			cout << BOLD_RED "[ERROR] " RESET RED "The string is not a number" << endl;
 			break;
 	}
 }
