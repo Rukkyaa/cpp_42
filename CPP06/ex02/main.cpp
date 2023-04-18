@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:35:36 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/18 19:00:59 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/18 19:08:01 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,22 @@ void	identify( Base &base ) {
 
 int	main( void ) {
 	std::srand(time(NULL));
+
+	std::cout << "\033[3;33m\033[1mGenerating objects...\033[0m" << std::endl;
 	Base	*first = generate();
 	Base	*two = generate();
 	Base	*three = generate();
 
+	std::cout << std::endl << "\033[3;36m\033[1mIdentifying (pointer)...\033[0m" << std::endl;
 	identify(first);
-	identify(*first);
 	identify(two);
 	identify(three);
 
+	std::cout << std::endl << "\033[3;36m\033[1mIdentifying (reference)...\033[0m" << std::endl;
+	identify(*first);
+	identify(*two);
+	identify(*three);
+	
 	delete first;
 	delete two;
 	delete three;
