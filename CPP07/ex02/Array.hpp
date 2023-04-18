@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 20:15:27 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/18 22:19:00 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/18 22:30:32 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <cstdlib>
 # include <cctype>
 # include <sstream>
+# include "colors.hpp"
 
 using	std::cout;
 using	std::endl;
@@ -32,11 +33,12 @@ class	Array {
 		Array						( const Array &rhs );
 		~Array						( void );
 
-		Array			&operator=	( const Array &rhs );
-		T				&operator[]	( unsigned int id ) const ;
+		Array			&operator=	( const Array &rhs ) const;
+		T				&operator[]	( unsigned int id ) const;
 
-		unsigned int	size		( void ) const ;
-		void			printArray	( void ) const ;
+		unsigned int	size		( void ) const;
+		void			printArray	( void ) const;
+		void			randomFill	( void );
 		class	OutOfRangeException : public std::exception {
 			virtual const char	*what( void ) const throw();
 		};
