@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:12:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 13:13:21 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:28:20 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ Span::Span( void ) {
 	// 
 }
 
-Span::Span( const Span &rhs ) {
-	(void)rhs;
+Span::Span( const Span &rhs ) : _size(rhs._size), _content(rhs._content) {
+	// 
 }
 
 Span	&Span::operator=( const Span &rhs ) {

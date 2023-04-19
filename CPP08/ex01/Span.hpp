@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:09:05 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 14:33:45 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:25:53 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class	Span {
 		};
 		
 		Span							( unsigned int n );
+		Span							( const Span &rhs );
 		~Span							( void );
 
 		void			addNumber		( int n );
@@ -53,7 +54,6 @@ class	Span {
 		unsigned int	getContentSize	( void ) const;
 	private:
 		Span							( void );
-		Span							( const Span &rhs );
 		Span			&operator=		( const Span &rhs );
 		unsigned int					_size;
 		vector<int>						_content;

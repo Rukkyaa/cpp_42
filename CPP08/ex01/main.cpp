@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:34:58 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 16:22:48 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:29:42 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	addNumberRangeTest( void );
 int main()
 {
 	srand(time(NULL));
-	
+
 	hideCursor();
 	zeroSizeTest();
 	oneSizeTest();
