@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:30:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 23:14:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 23:43:04 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	BitcoinExchange::fillBtcPrices( string const &dataBase ) {
 
 void	BitcoinExchange::getExchange( string const &line ) {
 	string		date;
+	string		closestDate;
 	string		tmp;
 	float		value;
 
@@ -46,7 +47,7 @@ void	BitcoinExchange::getExchange( string const &line ) {
 	date = line.substr(0, line.find('|') - 1);
 	if (!isValidDate(date))
 		throw BitcoinExchange::InvalideDateException();
-	date = getClosestDate(date);
+	closestDate = getClosestDate(date);
 	tmp = line.substr(line.find('|') + 2);
 	if (tmp.find_last_not_of("0123456789.") != string::npos || tmp.find('.') != tmp.find_last_of('.')
 		|| tmp.find_first_of("0123456789") > 0)
@@ -56,7 +57,7 @@ void	BitcoinExchange::getExchange( string const &line ) {
 		throw BitcoinExchange::NegativeValueException();
 	else if (value > 1000)
 		throw BitcoinExchange::TooHighValueException();
-	cout << BOLD_GREEN"[INFO] " GREEN "The exchange rate on " << date << " was " << _btcPrices[date] * value << "$." << RESET << endl;
+	cout << BOLD_GREEN"[INFO] " GREEN "The exchange rate on " << date << " was " << _btcPrices[closestDate] * value << "$." << RESET << endl;
 }
 
 string	BitcoinExchange::getClosestDate( string const &date ) {
@@ -67,6 +68,7 @@ string	BitcoinExchange::getClosestDate( string const &date ) {
 	int		yearClosest;
 	int		monthClosest;
 	int		dayClosest;
+	int		diff = INT_MAX;
 
 	year = atoi(date.substr(0, 4).c_str());
 	month = atoi(date.substr(5, 2).c_str());
@@ -76,8 +78,10 @@ string	BitcoinExchange::getClosestDate( string const &date ) {
 		yearClosest = atoi(it->first.substr(0, 4).c_str());
 		monthClosest = atoi(it->first.substr(5, 2).c_str());
 		dayClosest = atoi(it->first.substr(8, 2).c_str());
-		if (yearClosest <= year && monthClosest <= month && dayClosest <= day)
+		if (abs(yearClosest - year) * 365 + abs(monthClosest - month) * 30 + abs(dayClosest - day) < diff) {
+			diff = abs(yearClosest - year) * 365 + abs(monthClosest - month) * 30 + abs(dayClosest - day);
 			closestDate = it->first;
+		}
 	}
 	return (closestDate);
 }
@@ -100,7 +104,7 @@ bool	isValidDate( string const &date ) {
 	year = atoi(date.substr(0, 4).c_str());
 	month = atoi(date.substr(5, 2).c_str());
 	day = atoi(date.substr(8, 2).c_str());
-	return (!(year < 2009 || (year == 2009 && month == 1 && day < 3) || year > 9999
+	return (!(year < 2009 || (year == 2009 && month == 1 && day < 2) || year > 9999
 		|| month < 1 || month > 12 || day < 1 || day > 31));
 }
 

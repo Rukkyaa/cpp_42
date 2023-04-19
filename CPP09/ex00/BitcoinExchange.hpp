@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:31:01 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 22:57:37 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 23:41:26 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fstream>
 # include <map>
 # include <regex.h>
+# include <climits>
 
 # include "colors.hpp"
 
