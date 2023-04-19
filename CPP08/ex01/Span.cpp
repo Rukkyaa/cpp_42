@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:12:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 11:51:08 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 13:13:21 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	Span::shortestSpan( void ) const {
 		throw(Span::TooLittleValuesException());
 
 	vector<int>	tmp = _content;
-	int			min = abs(_content[0]-_content[1]);
 
 	sort(tmp.begin(), tmp.end());
+	int			min = abs(tmp[0] - tmp[1]);
 	for (size_t i = 0; i < tmp.size() - 1; ++i)
-		if (abs(_content[i] - _content[i + 1]))
-			min = abs(_content[i] - _content[i + 1]);
+		if (abs(tmp[i] - tmp[i + 1]) < min)
+			min = abs(tmp[i] - tmp[i + 1]);
 	return (min);
 }
 
@@ -56,6 +56,14 @@ void	Span::printSpan( void ) const {
 	for (size_t i = 0; i < _content.size(); ++i)
 		cout << _content[i] << " ";
 	cout << endl;
+}
+
+unsigned int	Span::getSize( void ) const {
+	return (_size);
+}
+
+unsigned int	Span::getContentSize( void ) const {
+	return (_content.size());
 }
 
 const char	*Span::TooMuchValuesException::what( void ) const throw() {

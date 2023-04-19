@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:09:05 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 11:49:13 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 12:38:48 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <algorithm>
 # include <exception>
 # include <vector>
+# include <cassert>
+# include <iomanip>
+
+# include "colors.hpp"
 
 using	std::cout;
 using	std::endl;
@@ -25,6 +29,7 @@ using	std::vector;
 using	std::sort;
 using	std::abs;
 using	std::distance;
+using	std::string;
 
 class	Span {
 	public:
@@ -36,21 +41,22 @@ class	Span {
 			virtual const char	*what( void ) const throw();
 		};
 		
-		Span						( unsigned int n );
-		~Span						( void );
+		Span							( unsigned int n );
+		~Span							( void );
 
-		void		addNumber		( int n );
-		void		addNumber		( vector<int>::iterator begin, vector<int>::iterator end );
-		void		printSpan		( void ) const ;
-		int			longestSpan		( void ) const;
-		int			shortestSpan	( void ) const;
-
+		void			addNumber		( int n );
+		void			addNumber		( vector<int>::iterator begin, vector<int>::iterator end );
+		void			printSpan		( void ) const ;
+		int				longestSpan		( void ) const;
+		int				shortestSpan	( void ) const;
+		unsigned int	getSize			( void ) const;
+		unsigned int	getContentSize	( void ) const;
 	private:
-		Span						( void );
-		Span						( const Span &rhs );
-		Span		&operator=		( const Span &rhs );
-		unsigned int				_size;
-		vector<int>					_content;
+		Span							( void );
+		Span							( const Span &rhs );
+		Span			&operator=		( const Span &rhs );
+		unsigned int					_size;
+		vector<int>						_content;
 };
 
 #endif
