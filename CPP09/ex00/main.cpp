@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:31:08 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 20:40:25 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 22:37:11 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,22 @@ int	main( int argc, char **argv ) {
 		cout << "[ERROR] Wrong number of arguments ! Usage: './btc <dataBaseFile>'" << endl;
 		return (EXIT_FAILURE);
 	}
-	BitcoinExchange	change(argv[1]);
+	ifstream	inputFile(argv[1]);
+	string		line;
+
+	if (inputFile.fail()) {
+		cout << "[ERROR] File could not be opened !" << endl;
+		return (EXIT_FAILURE);
+	}
+
+	BitcoinExchange	change("data.csv");
+	
+	getline(inputFile, line);
+	while (getline(inputFile, line)) {
+		try {
+			cout << change.getExchange(line) << endl;
+		} catch (exception &e) {
+			cout << e.what() << endl;
+		}
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:31:01 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 20:55:46 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 22:40:15 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cstdlib>
 # include <fstream>
 # include <map>
+# include <regex.h>
 
 # include "colors.hpp"
 
@@ -35,9 +36,35 @@ class	BitcoinExchange {
 				virtual const char* what() const throw();
 		};
 
-		BitcoinExchange( const string &dataBase );
+		class	WrongFormatException: public exception {
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	NegativeValueException: public exception {
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	InvalideDateException: public exception {
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	TooHighValueException: public exception {
+			public:
+				virtual const char* what() const throw();
+		};
+
+		void	fillBtcPrices	( const string &dataBase );
+		float	getExchange		( const string &line );
+		BitcoinExchange			( const string &dataBase );
 	private:
 		BitcoinExchange( void ) {};
-		map<string, double>	_btcPrices;
+		map<string, float>	_btcPrices;
+		map<string, int>	_exchanges;
 };
+
+bool	isValidDate( string const &date );
+
 #endif
