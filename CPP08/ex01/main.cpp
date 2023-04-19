@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:34:58 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 13:06:51 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 14:11:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ vector<int>	fillVector( unsigned int size) {
 
 	for (unsigned int i = 0; i < size; ++i)
 		tmp.push_back(rand() % 1000);
+	return (tmp);
+}
+
+vector<int>	fillNegativeVector( unsigned int size) {
+	vector<int>	tmp;
+
+	for (unsigned int i = 0; i < size; ++i)
+		tmp.push_back(rand() % 1000 - 500);
 	return (tmp);
 }
 
@@ -125,36 +133,106 @@ void	oneSizeTest( void ) {
 void shortestSpanTest( void ) {
 	cout << BOLD_WHITE"Shortest span test:" RESET << endl;
 
-	Span 		sp(5);
-	vector<int> numbers = fillVector(5);
-	int			shortestVector = getShortestSpan(numbers);
-	
-	sp.addNumber(numbers.begin(), numbers.end());
-	sp.printSpan();
-	cout << sp.shortestSpan() << endl;
-	cout << shortestVector << endl;
 	try {
-		int shortest = sp.shortestSpan();
-		my_assert(shortest == shortestVector, "shortestSpan");
-	} catch (exception &e) {
-		my_assert(false, "shortestSpan");
-	}
-
-	try {
-		Span sp2(2);
-		sp2.addNumber(10);
-		sp2.shortestSpan();
+		Span empty(2);
+		empty.shortestSpan();
 		my_assert(false, "shortestSpanEmpty");
 	} catch (exception &e) {
 		my_assert(true, "shortestSpanEmpty");
 	}
 
 	try {
-		Span sp3(1);
-		sp3.addNumber(10);
-		sp3.shortestSpan();
+		Span	halfEmpty(2);
+		halfEmpty.addNumber(42);
+		halfEmpty.shortestSpan();
+		my_assert(false, "shortestSpanHalfEmpty");
+	} catch (exception &e) {
+		my_assert(true, "shortestSpanHalfEmpty");
+	}
+
+	try {
+		Span single(1);
+		single.addNumber(42);
+		single.shortestSpan();
 		my_assert(false, "shortestSpanSingle");
 	} catch (exception &e) {
 		my_assert(true, "shortestSpanSingle");
+	}
+
+	try {
+		Span	same(2);
+		same.addNumber(42);
+		same.addNumber(42);
+		my_assert(same.shortestSpan() == 0, "shortestSpanSame");
+	} catch (exception &e) {
+		my_assert(true, "shortestSpanSame");
+	}
+
+	try {
+		Span	negative(500);
+		vector<int> numbers = fillNegativeVector(500);
+		int			shortestVector = getShortestSpan(numbers);
+
+		negative.addNumber(numbers.begin(), numbers.end());
+		my_assert(negative.shortestSpan() == shortestVector, "shortestSpanNegative");
+	} catch (exception &e) {
+		my_assert(false, "shortestSpanNegative");
+	}
+
+	try {
+		Span	sorted(100);
+		vector<int> numbers = fillVector(100);
+		int			shortestVector;
+
+		sort(numbers.begin(), numbers.end());
+		sorted.addNumber(numbers.begin(), numbers.end());
+		shortestVector = getShortestSpan(numbers);
+		my_assert(sorted.shortestSpan() == shortestVector, "shortestSpanSorted");
+	} catch (exception &e) {
+		my_assert(false, "shortestSpanSorted");
+	}
+
+	try {
+		Span	basic(5);
+		vector<int> numbers = fillVector(5);
+		int			shortestVector = getShortestSpan(numbers);
+
+		basic.addNumber(numbers.begin(), numbers.end());
+		my_assert(basic.shortestSpan() == shortestVector, "shortestSpanBasic");
+	} catch (exception &e) {
+		my_assert(false, "shortestSpanBasic");
+	}
+
+	try {
+		Span	medium(10000);
+		vector<int> numbers = fillVector(10000);
+		int			shortestVector = getShortestSpan(numbers);
+
+		medium.addNumber(numbers.begin(), numbers.end());
+		my_assert(medium.shortestSpan() == shortestVector, "shortestSpanMedium");
+	} catch (exception &e) {
+		my_assert(false, "shortestSpanMedium");
+	}
+
+	try {
+		Span	big(1000000);
+		vector<int> numbers = fillVector(1000000);
+		int			shortestVector = getShortestSpan(numbers);
+
+		big.addNumber(numbers.begin(), numbers.end());
+		my_assert(big.shortestSpan() == shortestVector, "shortestSpanBig");
+	} catch (exception &e) {
+		my_assert(false, "shortestSpanBig");
+	}
+
+	try {
+		Span	huge(10000000);
+		vector<int> numbers = fillVector(10000000);
+		int			shortestVector = getShortestSpan(numbers);
+
+		huge.addNumber(numbers.begin(), numbers.end());
+		my_assert(huge.shortestSpan() == shortestVector, "shortestSpanHuge");
+	} catch (exception &e) {
+		my_assert(false, "shortestSpanHuge");
 	}
 }
