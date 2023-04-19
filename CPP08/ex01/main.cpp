@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:34:58 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 15:06:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:22:48 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int main()
 	srand(time(NULL));
 	
 	hideCursor();
-	// zeroSizeTest();
-	// oneSizeTest();
-	// shortestSpanTest();
-	// longestSpanTest();
+	zeroSizeTest();
+	oneSizeTest();
+	shortestSpanTest();
+	longestSpanTest();
 	addNumberRangeTest();
 	showCursor();
 	return (0);
@@ -349,5 +349,39 @@ void	addNumberRangeTest( void ) {
 		my_assert(false, "addNumberEmpty");
 	}
 
-	try
+	try {
+		Span	basic(5);
+		vector<int> numbers = fillVector(5);
+
+		basic.addNumber(numbers.begin(), numbers.end());
+		my_assert(true, "addNumberBasic");
+	} catch (exception &e) {
+		my_assert(false, "addNumberBasic");
+	}
+
+	try {
+		Span	medium(10000);
+		vector<int> numbers = fillVector(10000);
+
+		medium.addNumber(numbers.begin(), numbers.end());
+		my_assert(true, "addNumberMedium");
+	} catch (exception &e) {
+		my_assert(false, "addNumberMedium");
+	}
+
+	try {
+		Span	big(1000000);
+		vector<int> numbers = fillVector(1000000);
+
+		big.addNumber(numbers.begin(), numbers.end());
+		my_assert(true, "addNumberBig");
+		try {
+			big.addNumber(numbers.begin(), numbers.end());
+			my_assert(false, "addNumberBigTooMany");
+		} catch (exception &e) {
+			my_assert(true, "addNumberBigTooMany");
+		}
+	} catch (exception &e) {
+		my_assert(false, "addNumberBig");
+	}
 }
