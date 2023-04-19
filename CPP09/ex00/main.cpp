@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:31:08 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 22:37:11 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 23:00:11 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main( int argc, char **argv ) {
 	getline(inputFile, line);
 	while (getline(inputFile, line)) {
 		try {
-			cout << change.getExchange(line) << endl;
+			change.getExchange(line);
 		} catch (exception &e) {
 			cout << e.what() << endl;
 		}

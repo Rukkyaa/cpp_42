@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:30:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 22:40:05 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 23:14:43 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	BitcoinExchange::fillBtcPrices( string const &dataBase ) {
 	dataBaseFile.close();
 }
 
-float	BitcoinExchange::getExchange( string const &line ) {
+void	BitcoinExchange::getExchange( string const &line ) {
 	string		date;
+	string		tmp;
 	float		value;
 
 	if (line.find('|') == string::npos)
@@ -45,14 +46,40 @@ float	BitcoinExchange::getExchange( string const &line ) {
 	date = line.substr(0, line.find('|') - 1);
 	if (!isValidDate(date))
 		throw BitcoinExchange::InvalideDateException();
+	date = getClosestDate(date);
+	tmp = line.substr(line.find('|') + 2);
+	if (tmp.find_last_not_of("0123456789.") != string::npos || tmp.find('.') != tmp.find_last_of('.')
+		|| tmp.find_first_of("0123456789") > 0)
+		throw BitcoinExchange::WrongFormatException();
 	value = atof(line.substr(line.find('|') + 2).c_str());
 	if (value < 0)
 		throw BitcoinExchange::NegativeValueException();
-	else if (value == 0)
-		return (0);
 	else if (value > 1000)
 		throw BitcoinExchange::TooHighValueException();
-	return (_btcPrices[date] * value);
+	cout << BOLD_GREEN"[INFO] " GREEN "The exchange rate on " << date << " was " << _btcPrices[date] * value << "$." << RESET << endl;
+}
+
+string	BitcoinExchange::getClosestDate( string const &date ) {
+	string	closestDate;
+	int		year;
+	int		month;
+	int		day;
+	int		yearClosest;
+	int		monthClosest;
+	int		dayClosest;
+
+	year = atoi(date.substr(0, 4).c_str());
+	month = atoi(date.substr(5, 2).c_str());
+	day = atoi(date.substr(8, 2).c_str());
+
+	for (map<string, float>::iterator it = _btcPrices.begin(); it != _btcPrices.end(); it++) {
+		yearClosest = atoi(it->first.substr(0, 4).c_str());
+		monthClosest = atoi(it->first.substr(5, 2).c_str());
+		dayClosest = atoi(it->first.substr(8, 2).c_str());
+		if (yearClosest <= year && monthClosest <= month && dayClosest <= day)
+			closestDate = it->first;
+	}
+	return (closestDate);
 }
 
 bool	isValidDate( string const &date ) {
@@ -90,7 +117,7 @@ const char	*BitcoinExchange::NegativeValueException::what() const throw() {
 }
 
 const char	*BitcoinExchange::InvalideDateException::what() const throw() {
-	return (BOLD_RED"[ERROR] " RED "Date not found !" RESET);
+	return (BOLD_RED"[ERROR] " RED "Invalid date found !" RESET);
 }
 
 const char	*BitcoinExchange::TooHighValueException::what() const throw() {
