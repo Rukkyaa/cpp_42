@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:09:05 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 12:38:48 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 14:33:45 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <vector>
 # include <cassert>
 # include <iomanip>
-
+# include <ctime>
 # include "colors.hpp"
 
 using	std::cout;
@@ -58,5 +58,14 @@ class	Span {
 		unsigned int					_size;
 		vector<int>						_content;
 };
+
+void		hideCursor( void );
+void		showCursor( void );
+void		ft_wait( float sec );
+void		my_assert( bool res, string test_name);
+vector<int>	fillVector( unsigned int size);
+vector<int>	fillNegativeVector( unsigned int size);
+int			getShortestSpan( vector<int> &v);
+int			getLongestSpan( vector<int> &v);
 
 #endif
