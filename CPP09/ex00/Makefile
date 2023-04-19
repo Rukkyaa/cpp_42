@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by axlamber          #+#    #+#              #
-#    Updated: 2023/04/19 20:38:54 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/04/20 00:12:42 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ flag:=1
 		@if [ $(flag) = "1" ]; then\
 			clear ;\
 			printf "\033[1;35m╔══════════════════════════════════════╗\n";\
-			printf "║          CPP08 EX02 LOADING...       ║\n";\
+			printf "║          CPP09 EX00 LOADING...       ║\n";\
 			printf "╠══════════════════════════════════════╣\n";\
 			printf "║                                      ║\n";\
 			printf "║                                      ║\n\033[A\033[A";\
@@ -40,7 +40,7 @@ flag:=1
 
 $(NAME):$(OBJS)
 		@setterm -cursor on
-		@printf "\033[K\033[1;32m║ CPP08 Ex02 : compiled                ║\n\033[m"
+		@printf "\033[K\033[1;32m║ CPP09 Ex00 : compiled                ║\n\033[m"
 		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 		@printf "\033[1;32m╠══════════════════════════════════════╣\n"
 		@printf "║          COMPILATION FINISHED !      ║\n"
@@ -50,7 +50,7 @@ all: $(NAME)
 
 help:
 	@printf "\033[1;36m╔═══════════════════════════════════════════════════╗\n"
-	@printf "║                  CPP08 EX02 HELP                  ║\n"
+	@printf "║                  CPP09 EX00 HELP                  ║\n"
 	@printf "╠═══════════════════════════════════════════════════╣\n"
 	@printf "║                      OPTIONS                      ║\n"
 	@printf "╠═══════════════════════════════════════════════════╣\n"
@@ -70,7 +70,7 @@ debug: re
 
 clean:
 			@printf "\033[1;31m╔══════════════════════════════════════╗\n"
-			@printf "║           CPP08 EX02 CLEANING        ║\n"
+			@printf "║           CPP09 EX00 CLEANING        ║\n"
 			@printf "╠══════════════════════════════════════╣\n\033[m"
 			@printf "\033[K\033[1;31m║\033[1;33m Destroying objects                   \033[1;31m║\n\033[m"
 			@$(RM) .build
@@ -78,7 +78,7 @@ clean:
 
 fclean:
 			@printf "\033[1;31m╔══════════════════════════════════════╗\n"
-			@printf "║           CPP08 EX02 CLEANING        ║\n"
+			@printf "║           CPP09 EX00 CLEANING        ║\n"
 			@printf "╠══════════════════════════════════════╣\n\033[m"
 			@printf "\033[K\033[1;31m║\033[1;33m Destroying objects                   \033[1;31m║\n\033[m"
 			@printf "\033[K\033[1;31m║\033[1;31m Destroying binary                    \033[1;31m║\n\033[m"
