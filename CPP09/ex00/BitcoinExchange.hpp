@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:31:01 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 23:41:26 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/20 00:07:58 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ class	BitcoinExchange {
 		void			getExchange		( const string &line );
 		BitcoinExchange					( const string &dataBase );
 	private:
-		BitcoinExchange( void ) {};
+		BitcoinExchange					( void ) {};
+		BitcoinExchange					( BitcoinExchange const &src ) { (void)src; };
+		BitcoinExchange 	&operator=	( BitcoinExchange const &rhs ) { (void)rhs; return *this; };
 		map<string, float>	_btcPrices;
 		map<string, int>	_exchanges;
 };
