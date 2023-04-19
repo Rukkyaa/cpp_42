@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:34:58 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 01:06:15 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 11:54:44 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,20 @@
 
 int main()
 {
-	Span sp(5);
+	std::vector<int> numbers;
+	Span span(5);
 
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	cout << sp.shortestSpan() << endl;
-	cout << sp.longestSpan() << endl;
+	numbers.push_back(28);
+	numbers.push_back(4);
+	numbers.push_back(1);
+	numbers.push_back(40);
+	numbers.push_back(13);
+
+	cout << "Contenu du Span: " << endl;
+	span.printSpan();
+	span.addNumber(numbers.begin(), numbers.end());
+	cout << "Contenu du Span: " << endl;
+	span.printSpan();
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 00:12:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/19 01:04:42 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/19 11:51:08 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@ void	Span::addNumber( int nb ) {
 	_content.push_back(nb);
 }
 
-int	Span::longestSpan( void ) {
+void	Span::addNumber( vector<int>::iterator begin, vector<int>::iterator end) {
+	if (distance(begin, end) + _content.size() > _size)
+		throw(Span::TooMuchValuesException());
+	_content.insert(_content.end(), begin, end);
+}
+
+int	Span::longestSpan( void ) const {
 	if (_content.size() < 2)
 		throw(Span::TooLittleValuesException());
 
@@ -32,7 +38,7 @@ int	Span::longestSpan( void ) {
 	return (abs(tmp[tmp.size() - 1] - tmp[0]));
 }
 
-int	Span::shortestSpan( void ) {
+int	Span::shortestSpan( void ) const {
 	if (_content.size() < 2)
 		throw(Span::TooLittleValuesException());
 
@@ -44,6 +50,12 @@ int	Span::shortestSpan( void ) {
 		if (abs(_content[i] - _content[i + 1]))
 			min = abs(_content[i] - _content[i + 1]);
 	return (min);
+}
+
+void	Span::printSpan( void ) const {
+	for (size_t i = 0; i < _content.size(); ++i)
+		cout << _content[i] << " ";
+	cout << endl;
 }
 
 const char	*Span::TooMuchValuesException::what( void ) const throw() {
