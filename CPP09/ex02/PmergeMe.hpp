@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:18 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/20 12:20:42 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:32:00 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <set>
 
 # include "colors.hpp"
+
+# define BEFORE true
+# define AFTER false
 
 using	std::string;
 using	std::cout;
@@ -57,7 +60,7 @@ class	PmergeMe {
 		PmergeMe						( PmergeMe const & src );
 
 		void			_parseArgs		( int argc, char **argv );
-		void			_printArgs		( void ) const;
+		void			_printArgs		( bool state ) const;
 		vector<int>		_args;
 };
 

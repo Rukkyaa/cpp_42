@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:10 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/20 12:21:13 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/20 12:33:06 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 PmergeMe::PmergeMe( int argc, char **argv ) {
 	_parseArgs(argc, argv);
+	_printArgs(BEFORE);
+	_printArgs(AFTER);
 }
 
 void	PmergeMe::_parseArgs( int argc, char **argv ) {
@@ -40,6 +42,16 @@ void	PmergeMe::_parseArgs( int argc, char **argv ) {
 	}
 }
 
+void	PmergeMe::_printArgs( bool state ) const {
+	cout << BOLD_GREEN << (state ? "[BEFORE]" : "[AFTER]") << GREEN": ";
+	for (vector<int>::const_iterator it = _args.begin(); it != _args.end(); ++it) {
+		cout << *it;
+		if (it + 1 != _args.end())
+			cout << ", ";
+	}
+	cout << RESET << endl;
+}
+
 const char *PmergeMe::NotANumberException::what( void ) const throw() {
 	return (BOLD_RED"[ERROR] " RED"Only numbers are allowed as arguments !");
 }
@@ -55,3 +67,5 @@ const char *PmergeMe::TooBigNumberException::what( void ) const throw() {
 const char *PmergeMe::DuplicateNumberException::what( void ) const throw() {
 	return (BOLD_RED"[ERROR] " RED"Duplicate numbers are not allowed as arguments !");
 }
+
+// ./PmergeMe `shuf -i 1-10 -n 10 | tr "\n" " "`
