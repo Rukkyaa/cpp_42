@@ -6,20 +6,20 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by axlamber          #+#    #+#              #
-#    Updated: 2023/04/20 00:13:33 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/04/20 00:17:11 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main BitcoinExchange)
+SRCS	= $(addsuffix .cpp, main RPN)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
-NAME	= btc
+NAME	= RPN
 CC		= c++
 RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, BitcoinExchange)
+HEADER  = $(addsuffix .hpp, RPN)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)
