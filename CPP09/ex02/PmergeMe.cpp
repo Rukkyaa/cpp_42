@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:10 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 08:43:48 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 10:52:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ PmergeMe::PmergeMe( int argc, char **argv ) {
 	secondTime = _getTime() - secondTime;
 	_printArgs(AFTER);
 	cout << BOLD_BLUE"Time for std::vector for " << _args.size() << " elements: " BLUE << firstTime << " us" RESET << endl;
-	cout << BOLD_BLUE"  Time for std::list for " << _args2.size() << " elements: " BLUE << secondTime << " us" RESET << endl;
+	cout << BOLD_BLUE" Time for std::deque for " << _args2.size() << " elements: " BLUE << secondTime << " us" RESET << endl;
 }
 
 template <typename T>
@@ -40,13 +40,15 @@ void	PmergeMe::_insertionSort(T &container)
 	for (iterator i = container.begin(); i != container.end(); i++)
 	{
 		iterator j = i;
-		while (j != container.begin() && *(prev(j)) > *j)
+		while (j != container.begin() && *(j - 1) > *j)
 		{
-			std::iter_swap(prev(j), j);
-			std::advance(j, -1);
+			std::iter_swap(j - 1, j);
+			j--;
 		}
 	}
 }
+
+
 
 template <typename T>
 void	PmergeMe::_mergeInsertionSort(T &container) {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by axlamber          #+#    #+#              #
-#    Updated: 2023/04/20 11:43:11 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/04/21 10:45:14 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJS	= $(SRCS:%.cpp=.build/%.o)
 NAME	= PmergeMe
 CC		= c++
 RM		= rm -rf
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 INCLUDE = -I ./
 HEADER  = $(addsuffix .hpp, PmergeMe)

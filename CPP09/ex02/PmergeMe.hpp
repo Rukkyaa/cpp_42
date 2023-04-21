@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:18 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 08:41:09 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 10:51:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <climits>
 # include <algorithm>
 # include <set>
-# include <list>
+# include <deque>
 # include <sys/time.h>
 # include "colors.hpp"
 
@@ -30,11 +30,10 @@ using	std::string;
 using	std::cout;
 using	std::endl;
 using	std::vector;
-using	std::list;
+using	std::deque;
 using	std::set;
 using	std::iter_swap;
 using	std::merge;
-using	std::prev;
 using	std::advance;
 
 
@@ -81,7 +80,7 @@ class	PmergeMe {
 		template <typename T>
 		void			_mergeSort		( T &container );
 		vector<int>		_args;
-		list<int>		_args2;
+		deque<int>		_args2;
 };
 
 #endif
