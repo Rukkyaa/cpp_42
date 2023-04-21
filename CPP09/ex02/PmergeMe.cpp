@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:10 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 08:23:40 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 08:41:30 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 PmergeMe::PmergeMe( int argc, char **argv ) {
 	long	firstTime;
+	long	secondTime;
 
 	_parseArgs(argc, argv);
 	_printArgs(BEFORE);
 	firstTime = _getTime();
 	_mergeInsertionSort(_args);
 	firstTime = _getTime() - firstTime;
+	secondTime = _getTime();
+	_mergeInsertionSort(_args2);
+	secondTime = _getTime() - secondTime;
 	_printArgs(AFTER);
-	cout << "Time: " << firstTime << " us" << endl;
+	cout << BOLD_BLUE"Time for std::vector: " BLUE << firstTime << " us" RESET << endl;
+	cout << BOLD_BLUE"Time for std::list: " BLUE << secondTime << " us" RESET << endl;
 }
 
 template <typename T>
@@ -35,10 +40,10 @@ void	PmergeMe::_insertionSort(T &container)
 	for (iterator i = container.begin(); i != container.end(); i++)
 	{
 		iterator j = i;
-		while (j != container.begin() && *(j - 1) > *j)
+		while (j != container.begin() && *(prev(j)) > *j)
 		{
-			iter_swap(j, (j - 1));
-			--j;
+			std::iter_swap(prev(j), j);
+			std::advance(j, -1);
 		}
 	}
 }
@@ -48,6 +53,7 @@ void	PmergeMe::_mergeInsertionSort(T &container) {
 	int const	limit = 16;
 	T			left;
 	T			right;
+	typename T::iterator middle;
 
 	if (container.size() < limit)
 	{
@@ -55,8 +61,10 @@ void	PmergeMe::_mergeInsertionSort(T &container) {
 		return ;
 	}
 
-	left = T(container.begin(), container.begin() + container.size() / 2);
-	right = T(container.begin() + container.size() / 2, container.end());
+	middle = container.begin();
+	advance(middle, container.size() / 2);
+	left = T(container.begin(), middle);
+	right = T(middle, container.end());
 
 	_mergeInsertionSort(left);
 	_mergeInsertionSort(right);
@@ -84,6 +92,7 @@ void	PmergeMe::_parseArgs( int argc, char **argv ) {
 		if (intSet.find((int)tmp) != intSet.end())
 			throw DuplicateNumberException();
 		_args.push_back((int)tmp);
+		_args2.push_back((int)tmp);
 		intSet.insert((int)tmp);
 	}
 }

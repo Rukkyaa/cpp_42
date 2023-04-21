@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:18 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 08:22:07 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 08:41:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <climits>
 # include <algorithm>
 # include <set>
+# include <list>
 # include <sys/time.h>
-
 # include "colors.hpp"
 
 # define BEFORE true
@@ -30,9 +30,12 @@ using	std::string;
 using	std::cout;
 using	std::endl;
 using	std::vector;
+using	std::list;
 using	std::set;
 using	std::iter_swap;
 using	std::merge;
+using	std::prev;
+using	std::advance;
 
 
 class	PmergeMe {
@@ -78,6 +81,7 @@ class	PmergeMe {
 		template <typename T>
 		void			_mergeSort		( T &container );
 		vector<int>		_args;
+		list<int>		_args2;
 };
 
 #endif
