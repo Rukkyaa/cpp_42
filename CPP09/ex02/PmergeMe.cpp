@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:10 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 08:41:30 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 08:43:48 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ PmergeMe::PmergeMe( int argc, char **argv ) {
 	_mergeInsertionSort(_args2);
 	secondTime = _getTime() - secondTime;
 	_printArgs(AFTER);
-	cout << BOLD_BLUE"Time for std::vector: " BLUE << firstTime << " us" RESET << endl;
-	cout << BOLD_BLUE"Time for std::list: " BLUE << secondTime << " us" RESET << endl;
+	cout << BOLD_BLUE"Time for std::vector for " << _args.size() << " elements: " BLUE << firstTime << " us" RESET << endl;
+	cout << BOLD_BLUE"  Time for std::list for " << _args2.size() << " elements: " BLUE << secondTime << " us" RESET << endl;
 }
 
 template <typename T>
