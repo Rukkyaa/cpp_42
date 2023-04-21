@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:18 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/20 12:32:00 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 08:22:07 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <cstdlib>
 # include <vector>
 # include <climits>
+# include <algorithm>
 # include <set>
+# include <sys/time.h>
 
 # include "colors.hpp"
 
@@ -29,6 +31,9 @@ using	std::cout;
 using	std::endl;
 using	std::vector;
 using	std::set;
+using	std::iter_swap;
+using	std::merge;
+
 
 class	PmergeMe {
 	public:
@@ -61,6 +66,17 @@ class	PmergeMe {
 
 		void			_parseArgs		( int argc, char **argv );
 		void			_printArgs		( bool state ) const;
+		
+		long			_getTime( void ) const;
+
+		template <typename T>
+		void			_insertionSort	( T &container );
+
+		template <typename T>
+		void			_mergeInsertionSort		( T &container );
+
+		template <typename T>
+		void			_mergeSort		( T &container );
 		vector<int>		_args;
 };
 

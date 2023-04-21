@@ -6,16 +6,62 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:10 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/20 12:33:06 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 08:23:40 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe( int argc, char **argv ) {
+	long	firstTime;
+
 	_parseArgs(argc, argv);
 	_printArgs(BEFORE);
+	firstTime = _getTime();
+	_mergeInsertionSort(_args);
+	firstTime = _getTime() - firstTime;
 	_printArgs(AFTER);
+	cout << "Time: " << firstTime << " us" << endl;
+}
+
+template <typename T>
+void	PmergeMe::_insertionSort(T &container)
+{
+	if (container.size() < 2)
+		return ;
+
+	typedef typename T::iterator iterator;
+
+	for (iterator i = container.begin(); i != container.end(); i++)
+	{
+		iterator j = i;
+		while (j != container.begin() && *(j - 1) > *j)
+		{
+			iter_swap(j, (j - 1));
+			--j;
+		}
+	}
+}
+
+template <typename T>
+void	PmergeMe::_mergeInsertionSort(T &container) {
+	int const	limit = 16;
+	T			left;
+	T			right;
+
+	if (container.size() < limit)
+	{
+		_insertionSort(container);
+		return ;
+	}
+
+	left = T(container.begin(), container.begin() + container.size() / 2);
+	right = T(container.begin() + container.size() / 2, container.end());
+
+	_mergeInsertionSort(left);
+	_mergeInsertionSort(right);
+
+	merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
 }
 
 void	PmergeMe::_parseArgs( int argc, char **argv ) {
@@ -52,6 +98,13 @@ void	PmergeMe::_printArgs( bool state ) const {
 	cout << RESET << endl;
 }
 
+long	PmergeMe::_getTime( void ) const {
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000000 + tv.tv_usec);
+}
+
 const char *PmergeMe::NotANumberException::what( void ) const throw() {
 	return (BOLD_RED"[ERROR] " RED"Only numbers are allowed as arguments !");
 }
@@ -67,5 +120,3 @@ const char *PmergeMe::TooBigNumberException::what( void ) const throw() {
 const char *PmergeMe::DuplicateNumberException::what( void ) const throw() {
 	return (BOLD_RED"[ERROR] " RED"Duplicate numbers are not allowed as arguments !");
 }
-
-// ./PmergeMe `shuf -i 1-10 -n 10 | tr "\n" " "`
