@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:21:36 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/12 15:07:44 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:42:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,17 @@ void	printLowLine( size_t maxLen ) {
 	cout << "╝" << RESET << endl;
 }
 
+bool	is_overflow_from_float(string str) {
+	char	*endptr = NULL;
+	long	iValue = std::strtol(str.c_str(), &endptr, 10);
+
+	if (endptr == str.c_str() || (*endptr != '\0' && *endptr != 'f' && *endptr != 'F' && *endptr != '.'))
+		return (true);
+	if (iValue > INT_MAX || iValue < INT_MIN)
+		return (true);
+	return (false);
+}
+
 void	printAll( char c, int i, float f, double d, string const &str ) {
 	size_t	maxLen = getMaxLen(str, c, i, d);
 	
@@ -64,7 +75,7 @@ void	printAll( char c, int i, float f, double d, string const &str ) {
 	else
 		cout << BOLD_GREEN << setw(maxLen) << left << c << L_WALL << RESET << endl;
 	cout << R_WALL << BLUE << setw(8) << right << "int: ";
-	if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN))
+	if (is_overflow_from_float(str))
 		cout << BOLD_RED << setw(maxLen) << left << "Impossible" << L_WALL << RESET << endl;
 	else
 		cout << BOLD_GREEN << setw(maxLen) << left << i << L_WALL << RESET << endl;

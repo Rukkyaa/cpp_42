@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/12 14:56:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/12 15:23:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cstdlib>
 # include <cfloat>
 # include <climits>
+# include <limits>
 # include <iomanip>
 # include <sstream>
 # include "colors.hpp"
