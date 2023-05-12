@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:59:03 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 18:17:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/12 14:56:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
 
-void	convert( string const &str ) {
+void	my_convert( string const &str ) {
 	unsigned short	type = getType(str);
 
 	switch (type)

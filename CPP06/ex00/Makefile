@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by axlamber          #+#    #+#              #
-#    Updated: 2023/04/16 16:21:35 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/12 14:50:40 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main convert getType print)
+SRCS	= $(addsuffix .cpp, main convert getType print ScalarConverter)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= convert
@@ -19,7 +19,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, colors convert)
+HEADER  = $(addsuffix .hpp, colors convert ScalarConverter)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)

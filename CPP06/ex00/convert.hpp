@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:38:47 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 18:02:09 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/12 14:56:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ using	std::setw;
 using	std::left;
 using	std::right;
 
-void			convert				( string const &str );
+void			my_convert				( string const &str );
 void			convertFromChar		( string const &str );
 void			convertFromInt		( string const &str );
 void			convertFromFloat	( string const &str );

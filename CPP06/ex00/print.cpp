@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:21:36 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/16 18:29:16 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/12 15:07:44 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	printAll( char c, int i, float f, double d, string const &str ) {
 	else
 		cout << BOLD_GREEN << setw(maxLen) << left << c << L_WALL << RESET << endl;
 	cout << R_WALL << BLUE << setw(8) << right << "int: ";
-	if (f > INT_MAX || f < INT_MIN)
+	if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN))
 		cout << BOLD_RED << setw(maxLen) << left << "Impossible" << L_WALL << RESET << endl;
 	else
 		cout << BOLD_GREEN << setw(maxLen) << left << i << L_WALL << RESET << endl;
