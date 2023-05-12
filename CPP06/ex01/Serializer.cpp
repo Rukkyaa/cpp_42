@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/16 18:35:18 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/12 14:43:28 by axlamber         ###   ########.fr       */
+/*   Created: 2023/05/12 14:38:15 by axlamber          #+#    #+#             */
+/*   Updated: 2023/05/12 14:41:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#include "Serializer.hpp"
 
-# include <iostream>
-# include <string>
-# include <stdint.h>
+uintptr_t	Serializer::serialize( Data *data ) {
+	return (reinterpret_cast<uintptr_t>(data));
+}
 
-using	std::string;
-using	std::cout;
-using	std::endl;
-
-class	Data {
-	private:
-		Data(const Data &src);
-		Data	&operator=(const Data &rhs);
-	public:
-		~Data();
-		Data();
-		string	str;
-		int		num;
-};
-
-#endif
+Data	*Serializer::deserialize( uintptr_t ptr ) {
+	return (reinterpret_cast<Data *>(ptr));
+}

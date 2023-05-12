@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by axlamber          #+#    #+#              #
-#    Updated: 2023/04/18 19:10:27 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/12 14:39:33 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addsuffix .cpp, main Data)
+SRCS	= $(addsuffix .cpp, main Data Serializer)
 OBJS	= $(SRCS:%.cpp=.build/%.o)
 
 NAME	= convert
@@ -19,7 +19,7 @@ RM		= rm -rf
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 
 
 INCLUDE = -I ./
-HEADER  = $(addsuffix .hpp, Data)
+HEADER  = $(addsuffix .hpp, Data Serializer)
 
 flag:=1
 .build/%.o : %.cpp $(HEADER)
