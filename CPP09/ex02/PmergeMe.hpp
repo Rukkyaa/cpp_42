@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:18 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 10:51:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/19 07:48:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ class	PmergeMe {
 		void			_insertionSort	( T &container );
 
 		template <typename T>
-		void			_mergeInsertionSort		( T &container );
+		void			_mergeSort(T &left, T &right, T &container);
 
 		template <typename T>
-		void			_mergeSort		( T &container );
+		void			_mergeInsertionSort(T &container);
 		vector<int>		_args;
 		deque<int>		_args2;
 };

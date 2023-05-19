@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:36:10 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/21 10:52:54 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/19 07:50:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,20 @@ void	PmergeMe::_insertionSort(T &container)
 	}
 }
 
+template <typename T>
+void	PmergeMe::_mergeSort(T &left, T &right, T &container) {
+	typename T::iterator itLeft = left.begin(), itRight = right.begin(), itContainer = container.begin();
 
+	while (itLeft != left.end() && itRight != right.end()) {
+        *itContainer++ = (*itLeft < *itRight) ? *itLeft++ : *itRight++;
+    }
+	while (itLeft != left.end()) {
+        *itContainer++ = *itLeft++;
+    }
+	while (itRight != right.end()) {
+        *itContainer++ = *itRight++;
+    }
+}
 
 template <typename T>
 void	PmergeMe::_mergeInsertionSort(T &container) {
@@ -71,7 +84,7 @@ void	PmergeMe::_mergeInsertionSort(T &container) {
 	_mergeInsertionSort(left);
 	_mergeInsertionSort(right);
 
-	merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
+	_mergeSort(left, right, container);
 }
 
 void	PmergeMe::_parseArgs( int argc, char **argv ) {
